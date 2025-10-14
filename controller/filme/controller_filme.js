@@ -49,7 +49,7 @@ const buscarFilmeId = async function(id){
 
     try {
 
-        if(!isNaN(id)){
+        if(!isNaN(id) && id != '' && id != null && id > 0){
             //Chama a função do DAO
             let resultFilme = await filmeDAO.getSelectByIdMovies(Number(id))
 
@@ -75,8 +75,66 @@ const buscarFilmeId = async function(id){
 }
 
 //Insere um filme
-const inserirFilme = async function(filme){
+const inserirFilme = async function(filme, contentType){
+    
+    //Criando um objeto novo para as mensagens
+    let MESSAGES = JSON.parse(JSON.stringify(DEFAULT_MESSAGES))
 
+    try {
+        //Validação do tipo de conteúdo da requisição (OBRIGATÓRIO SER UM JSON)
+        if(String(contentType).toUpperCase() == 'APPLICATION/JSON'){
+
+            if(filme.nome == '' || filme.nome == undefined || filme.nome == null || filme.nome.length > 100){
+                MESSAGES.ERROR_REQUIRED_FIELDS.message += '[Nome incorreto]'
+                return MESSAGES.ERROR_REQUIRED_FIELDS
+    
+            }else if(filme.sinopse == undefined){
+                MESSAGES.ERROR_REQUIRED_FIELDS.message += '[Sinopse incorreto]'
+                return MESSAGES.ERROR_REQUIRED_FIELDS
+    
+            }else if(filme.data_lancamento == undefined || filme.data_lancamento.length != 10){
+                MESSAGES.ERROR_REQUIRED_FIELDS.message += '[Data de lançamento incorreto]'
+                return MESSAGES.ERROR_REQUIRED_FIELDS
+    
+            }else if(filme.duracao == '' || filme.duracao == undefined || filme.duracao == null || filme.duracao.length > 8){
+                MESSAGES.ERROR_REQUIRED_FIELDS.message += '[Duração incorreto]' 
+                return MESSAGES.ERROR_REQUIRED_FIELDS
+    
+            }else if(filme.orcamento == '' || filme.orcamento == undefined || filme.orcamento == null || filme.orcamento.length > 12 || typeof(filme.orcamento) != 'number'){
+                MESSAGES.ERROR_REQUIRED_FIELDS.message += '[Orçamento incorreto]'
+                return MESSAGES.ERROR_REQUIRED_FIELDS
+    
+            }else if(filme.trailer == undefined || filme.trailer.length > 200){
+                MESSAGES.ERROR_REQUIRED_FIELDS.message += '[Trailer incorreto]'
+                return MESSAGES.ERROR_REQUIRED_FIELDS
+    
+            }else if(filme.capa == '' || filme.capa == undefined || filme.capa == null || filme.capa.length > 200){
+                MESSAGES.ERROR_REQUIRED_FIELDS.message += '[Capa incorreto]'
+                return MESSAGES.ERROR_REQUIRED_FIELDS
+    
+            }else{
+                //Processamento
+                //Chama a função para inserir um novo filme no banco de dados
+                let resultFilme = await filmeDAO.setInsertMovies(filme)
+    
+                if(resultFilme){
+                    MESSAGES.DEFAULT_HEADER.status = MESSAGES.SUCCCESS_CREATE_ITEM.status
+                    MESSAGES.DEFAULT_HEADER.status_code = MESSAGES.SUCCCESS_CREATE_ITEM.status_code
+                    MESSAGES.DEFAULT_HEADER.message = MESSAGES.SUCCCESS_CREATE_ITEM.message
+    
+                    return MESSAGES.DEFAULT_HEADER //201
+                }else{
+                    return MESSAGES.ERROR_INTERNAL_SERVER_CONTROLLER // 500
+                }
+            }
+        }else{
+            return MESSAGES.ERROR_CONTENT_TYPE // 415
+        }
+
+    } catch (error) {
+        return MESSAGES.ERROR_INTERNAL_SERVER_MODEL // 500
+    }
+    
 }
 
 //Atualiza um filme buscando pelo ID
@@ -91,5 +149,6 @@ const excluirFilme = async function(id){
 
 module.exports = {
     listarFilmes,
-    buscarFilmeId
+    buscarFilmeId,
+    inserirFilme
 }
