@@ -28,6 +28,8 @@ const SUCCESS_REQUEST = {status: true, status_code: 200, message: 'Requisição 
 
 const SUCCESS_CREATE_ITEM = {status: true, status_code: 201, message: 'Requisição bem sucedida...'}
 
+const SUCCESS_UPDATED_ITEM = {status: true, status_code: 200, message: 'Item atualizado com sucesso...'}
+
 /********************************************************************    MENSAGENS DE ERRO      ********************************************************************/
 
 const ERROR_NOT_FOUND = {status: false, status_code: 404, message: 'Não foram encontrados dados de retorno!'}
@@ -48,5 +50,6 @@ module.exports = {
     ERROR_INTERNAL_SERVER_MODEL,
     ERROR_REQUIRED_FIELDS,
     SUCCESS_CREATE_ITEM,
-    ERROR_CONTENT_TYPE
+    ERROR_CONTENT_TYPE,
+    SUCCESS_UPDATED_ITEM
 }

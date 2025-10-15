@@ -77,7 +77,7 @@ const getSelectByIdMovies = async function(id){
 const setInsertMovies = async function (filme){
     try {
         //Script sql
-        let sql = `INSERT INTO tbl_filme(nome, sinopse, data_lancamento, duracao, orcamento, trailer, capa)
+        let sql = `INSERT INTO tbl_filme (nome, sinopse, data_lancamento, duracao, orcamento, trailer, capa)
 	            VALUES('${filme.nome}',
 	            '${filme.sinopse}',
 	            '${filme.data_lancamento}',
@@ -85,6 +85,7 @@ const setInsertMovies = async function (filme){
 	            '${filme.orcamento}',
 	            '${filme.trailer}',
 	            '${filme.capa}')`
+
     
         let result = await prisma.$executeRawUnsafe(sql)
         
@@ -93,24 +94,61 @@ const setInsertMovies = async function (filme){
         else
             return false
 
-
     } catch (error) {
         return false
     }
 }
 
 //Altera um filme no banco de dados
-const setUpdateMovies = async function (id){
+const setUpdateMovies = async function (filme){
+
+    try {
+        //Script sql
+        let sql = `UPDATE tbl_filme SET 
+        nome = '${filme.nome}', 
+        sinopse = '${filme.sinopse}', 
+        data_lancamento = '${filme.data_lancamento}', 
+        duracao = '${filme.duracao}', 
+        orcamento = '${filme.orcamento}', 
+        trailer = '${filme.trailer}', 
+        capa = '${filme.capa}' 
+        WHERE id = ${filme.id}`
+
+        let result = await prisma.$executeRawUnsafe(sql)
+
+        if(result)
+            return true
+        else
+            return false
+
+    } catch (error) {
+        return false
+    }
     
 }
 
 //Deleta um filme no banco de dados
 const setDeleteMovies = async function (id){
-    
+    try {
+        //Script sql
+        let sql = `DELETE FROM tbl_filme WHERE id = ${id}`
+
+        let result = await prisma.$executeRawUnsafe(sql)
+
+        if(result)
+            return true
+        else
+            return false
+
+    } catch (error) {
+        return false
+    }
 }
 
 module.exports = {
     getSelectAllMovies,
     getSelectByIdMovies,
-    setInsertMovies
+    setInsertMovies,
+    setUpdateMovies,
+    setDeleteMovies
 }
