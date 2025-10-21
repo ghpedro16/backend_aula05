@@ -30,6 +30,8 @@ const SUCCESS_CREATE_ITEM = {status: true, status_code: 201, message: 'Requisiç
 
 const SUCCESS_UPDATED_ITEM = {status: true, status_code: 200, message: 'Item atualizado com sucesso...'}
 
+const SUCCESS_DELETED_ITEM = {status: true, status_code: 200, message: 'Item excluído com sucesso...'}
+
 /********************************************************************    MENSAGENS DE ERRO      ********************************************************************/
 
 const ERROR_NOT_FOUND = {status: false, status_code: 404, message: 'Não foram encontrados dados de retorno!'}
@@ -51,5 +53,6 @@ module.exports = {
     ERROR_REQUIRED_FIELDS,
     SUCCESS_CREATE_ITEM,
     ERROR_CONTENT_TYPE,
-    SUCCESS_UPDATED_ITEM
+    SUCCESS_UPDATED_ITEM,
+    SUCCESS_DELETED_ITEM
 }

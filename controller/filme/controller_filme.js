@@ -93,11 +93,23 @@ const inserirFilme = async function(filme, contentType){
                 let resultFilme = await filmeDAO.setInsertMovies(filme)
                 
                 if(resultFilme){
-                    MESSAGES.DEFAULT_HEADER.status = MESSAGES.SUCCESS_CREATE_ITEM.status
-                    MESSAGES.DEFAULT_HEADER.status_code = MESSAGES.SUCCESS_CREATE_ITEM.status_code
-                    MESSAGES.DEFAULT_HEADER.message = MESSAGES.SUCCESS_CREATE_ITEM.message
+                    //Chama a função para receber o ID gerado no BD
+                    let lastId = await filmeDAO.getSelectLastId()
+
+                    if(lastId){
+                        //Adiciona o ID no JSON de dados do filme
+                        filme.id = lastId
+
+                        MESSAGES.DEFAULT_HEADER.status = MESSAGES.SUCCESS_CREATE_ITEM.status
+                        MESSAGES.DEFAULT_HEADER.status_code = MESSAGES.SUCCESS_CREATE_ITEM.status_code
+                        MESSAGES.DEFAULT_HEADER.message = MESSAGES.SUCCESS_CREATE_ITEM.message
+                        MESSAGES.DEFAULT_HEADER.response = filme
                     
-                    return MESSAGES.DEFAULT_HEADER //201
+                        return MESSAGES.DEFAULT_HEADER //201
+                    }else{
+                        return MESSAGES.ERROR_INTERNAL_SERVER_MODEL
+                    }
+
                 }else{
                     return MESSAGES.ERROR_INTERNAL_SERVER_MODEL // 500
                 }
@@ -173,21 +185,32 @@ const excluirFilme = async function(id){
 
     try {
         if(!isNaN(id) && id != '' && id != null && id > 0){
-            //Chama a função do DAO
-            let resultFilme = await filmeDAO.setDeleteMovies(Number(id))
 
-            if(resultFilme){
-                if(resultFilme.length > 0){
-                    MESSAGES.DEFAULT_HEADER.status = MESSAGES.SUCCESS_REQUEST.status
-                    MESSAGES.DEFAULT_HEADER.status_code = MESSAGES.SUCCESS_REQUEST.status_code
+            //Validação de ID válido, chama a função da controller que verifica no BD se o ID existe e valida o ID
+            let validarId = await buscarFilmeId(id)
 
-                    return MESSAGES.DEFAULT_HEADER // 200
+            if(validarId.status_code == 200){
+
+                //Chama a função do DAO
+                let resultFilme = await filmeDAO.setDeleteMovies(Number(id))
+
+                if(resultFilme){
+
+                    MESSAGES.DEFAULT_HEADER.status      = MESSAGES.SUCCESS_DELETED_ITEM.status
+                    MESSAGES.DEFAULT_HEADER.status_code = MESSAGES.SUCCESS_DELETED_ITEM.status_code
+                    MESSAGES.DEFAULT_HEADER.message     = MESSAGES.SUCCESS_DELETED_ITEM.message
+                    MESSAGES.DEFAULT_HEADER.response.filme = resultFilmes
+
+                    delete MESSAGES.DEFAULT_HEADER.response
+
+                    return MESSAGES.DEFAULT_HEADER //200
                 }else{
-                    return MESSAGES.ERROR_NOT_FOUND // 404
+                    return MESSAGES.ERROR_INTERNAL_SERVER_MODEL // 500
                 }
             }else{
-                return MESSAGES.ERROR_INTERNAL_SERVER_MODEL // 500
+                return MESSAGES.ERROR_NOT_FOUND // 404
             }
+
         }else{
             MESSAGES.ERROR_REQUIRED_FIELDS.message += ' [ID Incorreto!]'
             return MESSAGES.ERROR_REQUIRED_FIELDS // 400
