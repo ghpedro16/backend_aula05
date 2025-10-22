@@ -30,6 +30,7 @@ app.use((request, response, next) => {
 
 //Import das controllers
 const controllerFilme = require('./controller/filme/controller_filme.js')
+const controllerClassificacao = require('./controller/classificacao/controller_classificacao.js')
 
 //EndPoint para as rotas de filmes
 
@@ -89,6 +90,22 @@ app.delete('/v1/locadora/filme/:id', cors(), async function(request, response){
 
     response.status(filme.status_code).json(filme)
 
+})
+
+app.get('/v1/locadora/classificacoes', cors(), async function(request, response){
+    //Chama a função para listar os filmes existentes no BD
+    let classificacao = await controllerClassificacao.listarClassificacoes()
+
+    response.status(classificacao.status_code).json(classificacao)
+})
+
+app.get('/v1/locadora/classificacao/:id', cors(), async function(request, response){
+    //Recebe o id via parametro
+    let idClassificacao = request.params.id
+
+    let classificacao = await controllerClassificacao.buscarClassificacaoId(idClassificacao)
+
+    response.status(classificacao.status_code).json(classificacao)
 })
 
 app.listen(PORT, function(){
