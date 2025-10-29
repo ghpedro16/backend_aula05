@@ -31,11 +31,12 @@ app.use((request, response, next) => {
 //Import das controllers
 const controllerFilme = require('./controller/filme/controller_filme.js')
 const controllerClassificacao = require('./controller/classificacao/controller_classificacao.js')
+const controllerPersonagem = require('./controller/personagem/controller_personagem.js')
 
 //EndPoint para as rotas de filmes
 
 //Importa todos os filmes
-app.get('/v1/locadora/filmes', cors(), async function(request, response){
+app.get('/v1/locadora/filmes', cors(), async function (request, response) {
     //Chama a função para listar os filmes existentes no BD
     let filmes = await controllerFilme.listarFilmes()
 
@@ -43,7 +44,7 @@ app.get('/v1/locadora/filmes', cors(), async function(request, response){
 })
 
 //Importa o filme filtrando pelo ID
-app.get('/v1/locadora/filme/:id', cors(), async function(request, response){
+app.get('/v1/locadora/filme/:id', cors(), async function (request, response) {
     //Recebe o ID via parametro
     let idFilme = request.params.id
 
@@ -54,7 +55,7 @@ app.get('/v1/locadora/filme/:id', cors(), async function(request, response){
 })
 
 //
-app.post('/v1/locadora/filme', cors(), bodyParserJSON, async function(request, response){
+app.post('/v1/locadora/filme', cors(), bodyParserJSON, async function (request, response) {
     //Recebe os dados do body da requisição (se utilizar o bodyParser, é obrigatório ter no EndPoint)
     let dadosBody = request.body
 
@@ -66,7 +67,7 @@ app.post('/v1/locadora/filme', cors(), bodyParserJSON, async function(request, r
     response.status(filme.status_code).json(filme)
 })
 
-app.put('/v1/locadora/filme/:id', cors(), bodyParserJSON, async function(request, response){
+app.put('/v1/locadora/filme/:id', cors(), bodyParserJSON, async function (request, response) {
     //Recebe o id do filme
     let idFilme = request.params.id
 
@@ -82,7 +83,7 @@ app.put('/v1/locadora/filme/:id', cors(), bodyParserJSON, async function(request
     response.status(filme.status_code).json(filme)
 })
 
-app.delete('/v1/locadora/filme/:id', cors(), async function(request, response){
+app.delete('/v1/locadora/filme/:id', cors(), async function (request, response) {
     //Recebe o id do filme
     let idFilme = request.params.id
 
@@ -92,14 +93,16 @@ app.delete('/v1/locadora/filme/:id', cors(), async function(request, response){
 
 })
 
-app.get('/v1/locadora/classificacoes', cors(), async function(request, response){
-    //Chama a função para listar os filmes existentes no BD
+//Lista todas as classificacoes
+app.get('/v1/locadora/classificacoes', cors(), async function (request, response) {
+    //Chama a função para listar as classificacoes existentes no BD
     let classificacao = await controllerClassificacao.listarClassificacoes()
 
     response.status(classificacao.status_code).json(classificacao)
 })
 
-app.get('/v1/locadora/classificacao/:id', cors(), async function(request, response){
+//Filtra uma classificacao pelo ID
+app.get('/v1/locadora/classificacao/:id', cors(), async function (request, response) {
     //Recebe o id via parametro
     let idClassificacao = request.params.id
 
@@ -108,6 +111,102 @@ app.get('/v1/locadora/classificacao/:id', cors(), async function(request, respon
     response.status(classificacao.status_code).json(classificacao)
 })
 
-app.listen(PORT, function(){
+//Insere uma classificacao
+app.post('/v1/locadora/classificacao'.cors(), bodyParserJSON, async function (request, response) {
+    //Recebe os dados do body da requisição (se utilizar o bodyParser, é obrigatório ter no EndPoint)
+    let dadosBody = request.body
+
+    //Recebe o tipo de dado da requisição (JSON ou XML)
+    let contentType = request.headers['content-type']
+
+    let classificacao = await controllerClassificacao.inserirClassificacao(dadosBody, contentType)
+
+    response.status(classificacao.status_code).json(classificacao)
+})
+
+//Atualiza uma classificacao
+app.put('/v1/locadora/classificacao/:id', cors(), bodyParserJSON, async function (request, response) {
+    //Recebe o id da classificacao
+    let idClassificacao = request.params.id
+
+    //Recebe os dados a serem atualizados
+    let dadosBody = request.body
+
+    //Recebe o tipo de dado da requisição (JSON ou XML)
+    let contentType = request.headers['content-type']
+
+    let classificacao = await controllerClassificacao.atualizarClassificacao(dadosBody, idClassificacao, contentType)
+
+    response.status(classificacao.status_code).json(classificacao)
+})
+
+//Deleta uma classificacao
+app.delete('/v1/locadora/classificacao/:id', cors(), async function (request, response) {
+    //Recebe o id da classificacao
+    let idClassificacao = request.params.id
+
+    let classificacao = await controllerClassificacao.excluirClassificacao(idClassificacao)
+
+    response.status(classificacao.status_code).json(classificacao)
+})
+
+//Lista todos os personagens
+app.get('/v1/locadora/personagens', cors(), async function(request, response){
+    //Chama a função para listar os personagens existentes no BD
+    let personagem = await controllerPersonagem.listarPersonagens()
+
+    response.status(personagem.status_code).json(personagem)
+})
+
+//Filtra um personagem pelo ID
+app.get('/v1/locadora/personagem/:id', cors(), async function (request, response) {
+    //Recebe o id via parametro
+    let idPersonagem = request.params.id
+
+    let personagem = await controllerPersonagem.buscarPersonagemId(idPersonagem)
+
+    response.status(personagem.status_code).json(personagem)
+})
+
+//Insere um personagem
+app.post('/v1/locadora/personagem'.cors(), bodyParserJSON, async function (request, response) {
+    //Recebe os dados do body da requisição (se utilizar o bodyParser, é obrigatório ter no EndPoint)
+    let dadosBody = request.body
+
+    //Recebe o tipo de dado da requisição (JSON ou XML)
+    let contentType = request.headers['content-type']
+
+    let personagem = await controllerPersonagem.inserirPersonagem(dadosBody, contentType)
+
+    response.status(personagem.status_code).json(personagem)
+})
+
+//Atualiza um personagem
+app.put('/v1/locadora/personagem/:id', cors(), bodyParserJSON, async function (request, response) {
+    //Recebe o id do personagem
+    let idPersonagem = request.params.id
+
+    //Recebe os dados a serem atualizados
+    let dadosBody = request.body
+
+    //Recebe o tipo de dado da requisição (JSON ou XML)
+    let contentType = request.headers['content-type']
+
+    let personagem = await controllerPersonagem.atualizarPersonagem(dadosBody, idPersonagem, contentType)
+
+    response.status(personagem.status_code).json(personagem)
+})
+
+//Deleta um personagem
+app.delete('/v1/locadora/personagem/:id', cors(), async function (request, response) {
+    //Recebe o id do personagem
+    let idPersonagem = request.params.id
+
+    let personagem = await controllerPersonagem.excluirPersonagem(idPersonagem)
+
+    response.status(personagem.status_code).json(personagem)
+})
+
+app.listen(PORT, function () {
     console.log('API aguardando requisições...')
 })
