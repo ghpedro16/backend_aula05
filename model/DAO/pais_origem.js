@@ -1,6 +1,6 @@
 /*******************************************************************************************************************************************************************
- * Objetivo: Arquivo responsável pelo CRUD de dados no MySQL referente aos generos de filmes
- * Data: 29/10/2025
+ * Objetivo: Arquivo responsável pelo CRUD de dados no MySQL referente ao pais de origem relacionados a filmes, atores, entre outros
+ * Data: 04/11/2025
  * Autor: Pedro Henrique Araújo da Silva
  * Versão: 1.0
  *******************************************************************************************************************************************************************/
@@ -11,10 +11,10 @@ const {PrismaClient} = require('../../generated/prisma')
 //Cria um novo objeto baseado na classe do PrismaClient
 const prisma = new PrismaClient()
 
-const getSelectAllGenres = async function(){
+const getSelectAllCountrys = async function(){
     try {
         //Script sql para retornar os dados
-        let sql = `SELECT * FROM tbl_genero ORDER BY id_genero DESC`
+        let sql = `SELECT * FROM tbl_pais_origem ORDER BY id_pais_origem DESC`
 
         let result = await prisma.$queryRawUnsafe(sql)
 
@@ -28,10 +28,10 @@ const getSelectAllGenres = async function(){
     }
 }
 
-const getSelectGenreById = async function(id){
+const getSelectCountryById = async function(id){
     try {
         //Script sql para retornar os dados
-        let sql = `SELECT * FROM tbl_genero WHERE id_genero = ${id}`
+        let sql = `SELECT * FROM tbl_pais_origem WHERE id_pais_origem = ${id}`
 
         let result = await prisma.$queryRawUnsafe(sql)
 
@@ -48,7 +48,7 @@ const getSelectGenreById = async function(id){
 const getSelectLastId = async function(){
     try {
         //Script sql para retornar apenas o ultimo id do banco
-        let sql = `SELECT id_genero FROM tbl_genero ORDER BY id_genero DESC LIMIT 1`
+        let sql = `SELECT id_pais_origem FROM tbl_pais_origem ORDER BY id_pais_origem DESC LIMIT 1`
 
         let result = await prisma.$queryRawUnsafe(sql)
 
@@ -62,11 +62,11 @@ const getSelectLastId = async function(){
     }
 }
 
-const setInsertGenre = async function(genero){
+const setInsertCountry = async function(pais_origem){
     try {
         //Script sql
-        let sql = `INSERT INTO tbl_genero (nome)
-	            VALUES('${genero.nome}')`
+        let sql = `INSERT INTO tbl_pais_origem (nome)
+                VALUES('${pais_origem.nome}')`
     
         let result = await prisma.$executeRawUnsafe(sql)
         
@@ -80,12 +80,12 @@ const setInsertGenre = async function(genero){
     }
 }
 
-const setUpdateGenre = async function(genero){
+const setUpdateCountry = async function(pais_origem){
     try {
         //Script sql
-        let sql = `UPDATE tbl_genero SET 
-        nome = '${genero.nome}'
-        WHERE id_genero = ${genero.id}`
+        let sql = `UPDATE tbl_pais_origem SET
+        nome = '${pais_origem.nome}'
+        WHERE id_pais_origem = ${pais_origem.id}`
 
         let result = await prisma.$executeRawUnsafe(sql)
 
@@ -99,10 +99,10 @@ const setUpdateGenre = async function(genero){
     }
 }
 
-const setDeleteGenre = async function(id){
+const setDeleteCountry = async function(id){
     try {
         //Script sql
-        let sql = `DELETE FROM tbl_genero WHERE id_genero = ${id}`
+        let sql = `DELETE FROM tbl_pais_origem WHERE id_pais_origem = ${id}`
 
         let result = await prisma.$queryRawUnsafe(sql)
 
@@ -117,10 +117,10 @@ const setDeleteGenre = async function(id){
 }
 
 module.exports = {
-    getSelectAllGenres,
-    getSelectGenreById,
+    getSelectAllCountrys,
+    getSelectCountryById,
     getSelectLastId,
-    setInsertGenre,
-    setUpdateGenre,
-    setDeleteGenre
+    setInsertCountry,
+    setUpdateCountry,
+    setDeleteCountry
 }

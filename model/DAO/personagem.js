@@ -85,7 +85,7 @@ const setInsertCharacter = async function(personagem){
     }
 }
 
-const setUpdateCharacter = async function(id){
+const setUpdateCharacter = async function(personagem){
     try {
         //Script sql
         let sql = `UPDATE tbl_personagem SET 

@@ -32,6 +32,8 @@ app.use((request, response, next) => {
 const controllerFilme = require('./controller/filme/controller_filme.js')
 const controllerClassificacao = require('./controller/classificacao/controller_classificacao.js')
 const controllerPersonagem = require('./controller/personagem/controller_personagem.js')
+const controllerGenero = require('./controller/genero/controller_genero.js')
+const controllerPais = require('./controller/pais_origem/controller_pais_origem.js')
 
 //EndPoint para as rotas de filmes
 
@@ -169,7 +171,7 @@ app.get('/v1/locadora/personagem/:id', cors(), async function (request, response
 })
 
 //Insere um personagem
-app.post('/v1/locadora/personagem'.cors(), bodyParserJSON, async function (request, response) {
+app.post('/v1/locadora/personagem', cors(), bodyParserJSON, async function (request, response) {
     //Recebe os dados do body da requisição (se utilizar o bodyParser, é obrigatório ter no EndPoint)
     let dadosBody = request.body
 
@@ -206,6 +208,121 @@ app.delete('/v1/locadora/personagem/:id', cors(), async function (request, respo
 
     response.status(personagem.status_code).json(personagem)
 })
+
+//Retorna todos generos
+app.get('/v1/locadora/generos', cors(), async function(request, response){
+    //Chama a função para listar os generos existentes no BD
+    let genero = await controllerGenero.listarGeneros()
+
+    response.status(genero.status_code).json(genero)
+})
+
+//Retorna genero pelo id
+app.get('/v1/locadora/genero/:id', cors(), async function(request, response){
+    //Recebe o id via parametro
+    let idGenero = request.params.id
+
+    let genero = await controllerGenero.buscarGeneroId(idGenero)
+
+    response.status(genero.status_code).json(genero)
+})
+
+//Insere um genero
+app.post('/v1/locadora/genero', cors(), bodyParserJSON, async function(request, response){
+    //Recebe os dados do body da requisição (se utilizar o bodyParser, é obrigatório ter no EndPoint)
+    let dadosBody = request.body
+
+    //Recebe o tipo de dado da requisição (JSON ou XML)
+    let contentType = request.headers['content-type']
+
+    let genero = await controllerGenero.inserirGenero(dadosBody, contentType)
+
+    response.status(genero.status_code).json(genero)
+})
+
+//Atualizar genero
+app.put('/v1/locadora/genero/:id', cors(), bodyParserJSON, async function(request, response){
+    //Recebe o id do personagem
+    let idGenero = request.params.id
+
+    //Recebe os dados a serem atualizados
+    let dadosBody = request.body
+
+    //Recebe o tipo de dado da requisição (JSON ou XML)
+    let contentType = request.headers['content-type']
+
+    let genero = await controllerGenero.atualizarGenero(dadosBody, idGenero, contentType)
+
+    response.status(genero.status_code).json(genero)
+})
+
+//Deleta um genero
+app.delete('/v1/locadora/genero/:id', cors(), async function(response, request){
+    //Recebe o id do personagem
+    let idGenero = request.params.id
+
+    let genero = await controllerGenero.excluirGenero(idGenero)
+
+    response.status(genero.status_code).json(genero)
+})
+
+//Retorna todos paises
+app.get('/v1/locadora/paises', cors(), async function(request, response){
+    //Chama a função para listar os paises de origem existentes no BD
+    let paises = await controllerPais.listarPaises()
+
+    response.status(paises.status_code).json(paises)
+})
+
+//Retorna pais origem pelo id
+app.get('/v1/locadora/pais_origem/:id', cors(), async function(request, response){
+    //Recebe o id via parametro
+    let idPais = request.params.id
+
+    let pais_origem = await controllerPais.buscarPaisesId(idPais)
+
+    response.status(pais_origem.status_code).json(pais_origem)
+})
+
+//Insere um pais
+app.post('/v1/locadora/pais_origem', cors(), bodyParserJSON, async function(request, response){
+    //Recebe os dados do body da requisição (se utilizar o bodyParser, é obrigatório ter no EndPoint)
+    let dadosBody = request.body
+
+    //Recebe o tipo de dado da requisição (JSON ou XML)
+    let contentType = request.headers['content-type']
+
+    let pais_origem = await controllerPais(dadosBody, contentType)
+
+    response.status(pais_origem.status_code).json(pais_origem)
+})
+
+//Atualizar pais
+app.put('/v1/locadora/pais_origem/:id', cors(), bodyParserJSON, async function(request, response){
+    //Recebe o id do personagem
+    let idPais = request.params.id
+
+    //Recebe os dados a serem atualizados
+    let dadosBody = request.body
+
+    //Recebe o tipo de dado da requisição (JSON ou XML)
+    let contentType = request.headers['content-type']
+
+    let pais_origem = await controllerPais.atualizarPais(dadosBody, idPais, contentType)
+
+    response.status(pais_origem.status_code).json(pais_origem)
+})
+
+//Deleta um pais
+app.delete('/v1/locadora/pais_origem/:id', cors(), async function(response, request){
+    //Recebe o id do personagem
+    let idPais = request.params.id
+
+    let pais_origem = await controllerPais.excluirPais(idPais)
+
+    response.status(pais_origem.status_code).json(pais_origem)
+})
+
 
 app.listen(PORT, function () {
     console.log('API aguardando requisições...')
