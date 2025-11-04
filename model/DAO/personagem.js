@@ -55,7 +55,7 @@ const getSelectLastId = async function(){
         let result = await prisma.$queryRawUnsafe(sql)
 
         if(Array.isArray(result))
-            return Number(result[0].id)
+            return Number(result[0].id_personagem)
         else
             return false
 
@@ -96,7 +96,7 @@ const setUpdateCharacter = async function(personagem){
         WHERE id_personagem = ${personagem.id}`
 
         let result = await prisma.$executeRawUnsafe(sql)
-
+        
         if(result)
             return true
         else

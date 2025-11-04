@@ -87,11 +87,12 @@ const inserirClassificacao = async function (classificacao, contentType) {
                 //Processamento
                 //Chama a função para inserir uma nova classificacao no banco de dados
                 let resultClassificacao = await classificacaoDAO.setInsertClassification(classificacao)
-
+                
                 if (resultClassificacao) {
                     //Chama a função para receber o ID gerado no BD
                     let lastId = await classificacaoDAO.getSelectLastId()
-
+        
+                    console.log(lastId)
                     if (lastId) {
                         //Adiciona o ID no JSON de dados da classificacao
                         classificacao.id_classificacao = lastId
@@ -141,12 +142,12 @@ const atualizarClassificacao = async function (classificacao, id, contentType) {
                 if (validarId.status_code == 200) {
 
                     //Adiciona o ID do filme no JSON de dados para ser encaminhado ao DAO
-                    classificacao.id = Number(id)
-
+                    classificacao.id_classificacao = Number(id)
+                
                     //Processamento
                     //Chama a função para inserir um novo filme no banco de dados
                     let resultClassificacao = await classificacaoDAO.setUpdateClassification(classificacao)
-
+                    
                     if (resultClassificacao) {
                         MESSAGES.DEFAULT_HEADER.status = MESSAGES.SUCCESS_UPDATED_ITEM.status
                         MESSAGES.DEFAULT_HEADER.status_code = MESSAGES.SUCCESS_UPDATED_ITEM.status_code

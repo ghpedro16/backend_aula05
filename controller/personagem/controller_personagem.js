@@ -47,13 +47,12 @@ const buscarPersonagemId = async function(id){
     let MESSAGES = JSON.parse(JSON.stringify(DEFAULT_MESSAGES))
 
     try {
-
         if(!isNaN(id) && id != '' && id != null && id > 0){
             //Chama a função do DAO
             let resultPersonagem = await personagemDAO.getSelectCharacterById(Number(id))
 
             if(resultPersonagem){
-                if(resultPersonagens.length > 0){
+                if(resultPersonagem.length > 0){
                     MESSAGES.DEFAULT_HEADER.status = MESSAGES.SUCCESS_REQUEST.status
                     MESSAGES.DEFAULT_HEADER.status_code = MESSAGES.SUCCESS_REQUEST.status_code
                     MESSAGES.DEFAULT_HEADER.response.personagem = resultPersonagem
@@ -146,11 +145,10 @@ const atualizarPersonagem = async function(personagem, id, contentType){
 
                     //Adiciona o ID do filme no JSON de dados para ser encaminhado ao DAO
                     personagem.id = Number(id)
-
                     //Processamento
                     //Chama a função para inserir um novo filme no banco de dados
                     let resultPersonagem = await personagemDAO.setUpdateCharacter(personagem)
-                
+                    
                     if(resultPersonagem){
                         MESSAGES.DEFAULT_HEADER.status = MESSAGES.SUCCESS_UPDATED_ITEM.status
                         MESSAGES.DEFAULT_HEADER.status_code = MESSAGES.SUCCESS_UPDATED_ITEM.status_code

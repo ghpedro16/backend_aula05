@@ -195,11 +195,10 @@ const excluirFilme = async function(id){
                 let resultFilme = await filmeDAO.setDeleteMovies(Number(id))
 
                 if(resultFilme){
-
                     MESSAGES.DEFAULT_HEADER.status      = MESSAGES.SUCCESS_DELETED_ITEM.status
                     MESSAGES.DEFAULT_HEADER.status_code = MESSAGES.SUCCESS_DELETED_ITEM.status_code
                     MESSAGES.DEFAULT_HEADER.message     = MESSAGES.SUCCESS_DELETED_ITEM.message
-                    MESSAGES.DEFAULT_HEADER.response.filme = resultFilmes
+                    MESSAGES.DEFAULT_HEADER.response.filme = resultFilme
 
                     delete MESSAGES.DEFAULT_HEADER.response
 

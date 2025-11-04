@@ -56,7 +56,7 @@ const getSelectLastId = async function(){
         let result = await prisma.$queryRawUnsafe(sql)
 
         if(Array.isArray(result))
-            return Number(result[0].id)
+            return Number(result[0].id_classificacao)
         else
             return false
 
@@ -91,8 +91,8 @@ const setUpdateClassification = async function(classificacao){
     try {
         //Script sql
         let sql = `UPDATE tbl_classificacao SET 
-        simbolo = '${classificacao.simbolo}', 
-        classificacao_indicativa = '${classificacao.classificacao_indicativa}', 
+        simbolo = '${classificacao.simbolo}',
+        classificacao_indicativa = '${classificacao.classificacao_indicativa}',
         descricao = '${classificacao.descricao}'
         WHERE id_classificacao = ${classificacao.id_classificacao}`
 
