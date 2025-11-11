@@ -44,6 +44,8 @@ const ERROR_REQUIRED_FIELDS = {status: false, status_code: 400, message: 'Existe
 
 const ERROR_CONTENT_TYPE = {status: false, status_code: 415, message: 'Não foi possível processar a requisição, pois o tipo de dado enviado no corpo deve ser JSON'}
 
+const ERROR_RELATIONAL_INSERTION = {status: false, status_code: 500, message: 'A requisição do item principal foi processada com sucesso, porém houveram problemas ao inserir dados na tabela de relação!'}
+
 module.exports = {
     DEFAULT_HEADER,
     SUCCESS_REQUEST,
@@ -54,5 +56,6 @@ module.exports = {
     SUCCESS_CREATE_ITEM,
     ERROR_CONTENT_TYPE,
     SUCCESS_UPDATED_ITEM,
-    SUCCESS_DELETED_ITEM
+    SUCCESS_DELETED_ITEM,
+    ERROR_RELATIONAL_INSERTION
 }

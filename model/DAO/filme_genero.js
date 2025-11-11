@@ -55,7 +55,7 @@ const getSelectGenresByIdMovies = async function(id_filme){
                 FROM tbl_filme inner join tbl_filme_genero
                 ON tbl_filme.id = tbl_filme_genero.id_filme
                 inner join tbl_genero
-                ON tbl_genero.id = tbl_filme_genero.id_genero 
+                ON tbl_genero.id_genero = tbl_filme_genero.id_genero 
                 WHERE tbl_filme.id = ${id_filme}`
 
         let result = await prisma.$queryRawUnsafe(sql)
@@ -78,7 +78,7 @@ const getSelectMoviesByIdGenres = async function(id_genero){
                 FROM tbl_filme inner join tbl_filme_genero
                 ON tbl_filme.id = tbl_filme_genero.id_filme
                 inner join tbl_genero
-                ON tbl_genero.id = tbl_filme_genero.id_genero 
+                ON tbl_genero.id_genero = tbl_filme_genero.id_genero 
                 WHERE tbl_genero.id_genero = ${id_genero}`
 
         let result = await prisma.$queryRawUnsafe(sql)

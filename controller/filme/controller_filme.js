@@ -29,6 +29,22 @@ const listarFilmes = async function(){
 
         if(resultFilmes){
             if(resultFilmes.length > 0){
+
+                for(filme of resultFilmes){
+                    
+                    //Encaminha o JSON com o id do filme e do genero para a controller de filme_genero
+                    let resultFilmeGenero = await controllerFilmeGenero.listarGenerosIdFilme(filme.id)
+
+                    //Adicionar no JSON dados do genero
+                    //Cria o JSON com o id do genero
+                    let filmeGenero = {id_genero: genero.id_genero}
+                    resultFilmes.genero = filmeGenero
+
+                    if(resultFilmeGenero.status_code != 200){
+                        return MESSAGES.ERROR_RELATIONAL_INSERTION
+                    }
+                }
+
                 MESSAGES.DEFAULT_HEADER.status = MESSAGES.SUCCESS_REQUEST.status
                 MESSAGES.DEFAULT_HEADER.status_code = MESSAGES.SUCCESS_REQUEST.status_code
                 MESSAGES.DEFAULT_HEADER.response.filmes = resultFilmes
@@ -60,6 +76,8 @@ const buscarFilmeId = async function(id){
 
             if(resultFilme){
                 if(resultFilme.length > 0){
+
+
                     MESSAGES.DEFAULT_HEADER.status = MESSAGES.SUCCESS_REQUEST.status
                     MESSAGES.DEFAULT_HEADER.status_code = MESSAGES.SUCCESS_REQUEST.status_code
                     MESSAGES.DEFAULT_HEADER.response.filme = resultFilme
@@ -105,10 +123,19 @@ const inserirFilme = async function(filme, contentType){
 
                         //Processar a inserção dos dados na tabela de relação
                         //Entre filme e genero
-                        filme.genero.forEach(async function(genero){
+                        //filme.genero.forEach(async function(genero){
+                        //O forEach nao funciona bem com funcoes async por isso utilizar o for of
+                        for(genero of filme.genero){
+                            //Cria o JSON com o id do filme e o id do genero
                             let filmeGenero = {id_filme: lastId, id_genero: genero.id}
-                            let resultFilmeGenero = await controllerFilmeGenero.inserirFilmeGenero(filmeGenero)
-                        })
+
+                            //Encaminha o JSON com o id do filme e do genero para a controller de filme_genero
+                            let resultFilmeGenero = await controllerFilmeGenero.inserirFilmeGenero(filmeGenero, contentType)
+
+                            if(resultFilmeGenero.status_code != 201){
+                                return MESSAGES.ERROR_RELATIONAL_INSERTION
+                            }
+                        }
 
                         //Adiciona o ID no JSON de dados do filme
                         filme.id = lastId
@@ -116,6 +143,13 @@ const inserirFilme = async function(filme, contentType){
                         MESSAGES.DEFAULT_HEADER.status = MESSAGES.SUCCESS_CREATE_ITEM.status
                         MESSAGES.DEFAULT_HEADER.status_code = MESSAGES.SUCCESS_CREATE_ITEM.status_code
                         MESSAGES.DEFAULT_HEADER.message = MESSAGES.SUCCESS_CREATE_ITEM.message
+
+                        //Adicionar no JSON dados do genero
+                        delete filme.genero
+
+                        let resultDadosGenero = await controllerFilmeGenero.listarGenerosIdFilme(lastId)
+                        filme.genero = resultDadosGenero
+
                         MESSAGES.DEFAULT_HEADER.response = filme
                     
                         return MESSAGES.DEFAULT_HEADER //201
