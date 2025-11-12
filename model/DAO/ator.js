@@ -1,6 +1,6 @@
 /*******************************************************************************************************************************************************************
- * Objetivo: Arquivo responsável pelo CRUD de dados no MySQL referente aos personagens dos filmes
- * Data: 29/10/2025
+ * Objetivo: Arquivo responsável pelo CRUD de dados no MySQL referente aos atores dos filmes
+ * Data: 12/11/2025
  * Autor: Pedro Henrique Araújo da Silva
  * Versão: 1.0
  *******************************************************************************************************************************************************************/
@@ -11,10 +11,10 @@ const {PrismaClient} = require('../../generated/prisma')
 //Cria um novo objeto baseado na classe do PrismaClient
 const prisma = new PrismaClient()
 
-const getAllSelectCharacters = async function(){
+const getSelectAllActors = async function(){
     try {
         //Script sql
-        let sql = `select * from tbl_personagem order by id_personagem desc`
+        let sql = `select * from tbl_ator order by id_ator desc`
 
         //Encaminha para o BD o script sql
         let result = await prisma.$queryRawUnsafe(sql)
@@ -29,10 +29,10 @@ const getAllSelectCharacters = async function(){
     }
 }
 
-const getSelectCharacterById = async function(id){
+const getSelectActorById = async function(id){
     try {
         //Script sql
-        let sql = `select * from tbl_personagem where id_personagem = ${id}`
+        let sql = `select * from tbl_ator where id_ator = ${id}`
 
         //Encaminha para o BD o script sql
         let result = await prisma.$queryRawUnsafe(sql)
@@ -50,10 +50,10 @@ const getSelectCharacterById = async function(id){
 const getSelectLastId = async function(){
     try {
         //Script sql para retornar apenas o ultimo id do banco
-        let sql = `SELECT id_personagem FROM tbl_personagem ORDER BY id_personagem DESC LIMIT 1`
+        let sql = `SELECT id_ator FROM tbl_ator ORDER BY id_ator DESC LIMIT 1`
 
         let result = await prisma.$queryRawUnsafe(sql)
-
+        
         if(Array.isArray(result))
             return Number(result[0].id_personagem)
         else
@@ -64,14 +64,14 @@ const getSelectLastId = async function(){
     }
 }
 
-const setInsertCharacter = async function(personagem){
+const setInsertActor = async function(ator){
     try {
         //Script sql
-        let sql = `INSERT INTO tbl_personagem (nome, descricao, ficticio, foto)
-	            VALUES('${personagem.nome}',
-	            '${personagem.descricao}',
-	            '${personagem.ficticio}',
-	            '${personagem.foto}')`
+        let sql = `INSERT INTO tbl_ator (nome, data_nascimento, descricao, foto)
+	            VALUES('${ator.nome}',
+	            '${ator.data_nascimento}',
+	            '${ator.descricao}',
+	            '${ator.foto}')`        
 
         let result = await prisma.$executeRawUnsafe(sql)
         
@@ -85,15 +85,15 @@ const setInsertCharacter = async function(personagem){
     }
 }
 
-const setUpdateCharacter = async function(personagem){
+const setUpdateActor = async function (ator){
     try {
         //Script sql
-        let sql = `UPDATE tbl_personagem SET 
-        nome = '${personagem.nome}', 
-        descricao = '${personagem.descricao}', 
-        ficticio = '${personagem.ficticio}', 
-        foto = '${personagem.foto}' 
-        WHERE id_personagem = ${personagem.id}`
+        let sql = `UPDATE tbl_ator SET 
+        nome = '${ator.nome}', 
+        data_nascimento = '${ator.data_nascimento}', 
+        descricao = '${ator.descricao}', 
+        foto = '${ator.foto}' 
+        WHERE id_ator = ${ator.id}`
 
         let result = await prisma.$executeRawUnsafe(sql)
         
@@ -107,10 +107,10 @@ const setUpdateCharacter = async function(personagem){
     }
 }
 
-const setDeleteCharacter = async function(id){
+const setDeleteActor = async function(id){
     try {
         //Script sql
-        let sql = `DELETE FROM tbl_personagem WHERE id_personagem = ${id}`
+        let sql = `DELETE FROM tbl_ator WHERE id_ator = ${id}`
 
         let result = await prisma.$queryRawUnsafe(sql)
 
@@ -125,10 +125,10 @@ const setDeleteCharacter = async function(id){
 }
 
 module.exports = {
-    getAllSelectCharacters,
-    getSelectCharacterById,
+    getSelectAllActors,
+    getSelectActorById,
     getSelectLastId,
-    setInsertCharacter,
-    setUpdateCharacter,
-    setDeleteCharacter
+    setInsertActor,
+    setUpdateActor,
+    setDeleteActor
 }

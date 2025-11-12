@@ -31,6 +31,7 @@ const routesClassificacao = require('./routes/routes_classificacao.js')
 const routesPersonagem = require('./routes/routes_personagem.js')
 const routesGenero = require('./routes/routes_genero.js')
 const routesPais = require('./routes/routes_pais_origem.js')
+const routesAtor = require('./routes/routes_ator.js')
 
 //Usando as rotas do filme
 app.use(routesFilme)
@@ -46,6 +47,9 @@ app.use(routesGenero)
 
 //Usando as rotas de paises
 app.use(routesPais)
+
+//Usando as rotas de ator
+app.use(routesAtor)
 
 //Inicia a API
 app.listen(PORT, function () {
