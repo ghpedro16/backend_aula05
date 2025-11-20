@@ -45,7 +45,7 @@ const getSelectCountryById = async function(id){
     }
 }
 
-const getSelectLastId = async function(){
+const getSelectLastId = async function(){ 
     try {
         //Script sql para retornar apenas o ultimo id do banco
         let sql = `SELECT id_pais_origem FROM tbl_pais_origem ORDER BY id_pais_origem DESC LIMIT 1`

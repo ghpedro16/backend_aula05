@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
   output   = "../generated/prisma"
@@ -14,7 +8,13 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model tbl_teste {
-  id   Int    @id @default(autoincrement())
-  nome String
+model tbl_filme {
+  id              Int       @id @default(autoincrement())
+  nome            String    @db.VarChar(100)
+  sinopse         String?   @db.Text
+  data_lancamento DateTime? @db.Date
+  duracao         DateTime  @db.Time(0)
+  orcamento       Decimal   @db.Decimal(11, 2)
+  capa            String    @db.VarChar(200)
+  trailler        String?   @db.VarChar(200)
 }

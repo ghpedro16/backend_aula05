@@ -151,7 +151,7 @@ const inserirFilme = async function(filme, contentType){
                         delete filme.genero
 
                         let resultDadosGenero = await controllerFilmeGenero.listarGenerosIdFilme(lastId)
-                        filme.genero = resultDadosGenero
+                        filme.genero = resultDadosGenero.response.filme_genero
 
                         MESSAGES.DEFAULT_HEADER.response = filme
                     

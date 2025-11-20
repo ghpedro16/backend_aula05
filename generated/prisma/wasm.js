@@ -92,9 +92,15 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
-exports.Prisma.Tbl_testeScalarFieldEnum = {
+exports.Prisma.Tbl_filmeScalarFieldEnum = {
   id: 'id',
-  nome: 'nome'
+  nome: 'nome',
+  sinopse: 'sinopse',
+  data_lancamento: 'data_lancamento',
+  duracao: 'duracao',
+  orcamento: 'orcamento',
+  capa: 'capa',
+  trailler: 'trailler'
 };
 
 exports.Prisma.SortOrder = {
@@ -102,13 +108,21 @@ exports.Prisma.SortOrder = {
   desc: 'desc'
 };
 
-exports.Prisma.tbl_testeOrderByRelevanceFieldEnum = {
-  nome: 'nome'
+exports.Prisma.NullsOrder = {
+  first: 'first',
+  last: 'last'
+};
+
+exports.Prisma.tbl_filmeOrderByRelevanceFieldEnum = {
+  nome: 'nome',
+  sinopse: 'sinopse',
+  capa: 'capa',
+  trailler: 'trailler'
 };
 
 
 exports.Prisma.ModelName = {
-  tbl_teste: 'tbl_teste'
+  tbl_filme: 'tbl_filme'
 };
 /**
  * Create the Client
@@ -121,7 +135,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Users\\25132515\\Desktop\\Back-End\\Aula 05\\generated\\prisma",
+      "value": "C:\\Users\\pedro\\OneDrive\\Documentos\\SENAI\\back-end\\backend_aula05\\generated\\prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -135,7 +149,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\Users\\25132515\\Desktop\\Back-End\\Aula 05\\prisma\\schema.prisma",
+    "sourceFilePath": "C:\\Users\\pedro\\OneDrive\\Documentos\\SENAI\\back-end\\backend_aula05\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
@@ -158,13 +172,13 @@ const config = {
       }
     }
   },
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"../generated/prisma\"\n}\n\ndatasource db {\n  provider = \"mysql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel tbl_teste {\n  id   Int    @id @default(autoincrement())\n  nome String\n}\n",
-  "inlineSchemaHash": "b65a23bc0ed4693e4f700142554c2aa95b9e0ceaa407688c2d06160e4d64f7a4",
+  "inlineSchema": "generator client {\n  provider = \"prisma-client-js\"\n  output   = \"../generated/prisma\"\n}\n\ndatasource db {\n  provider = \"mysql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel tbl_filme {\n  id              Int       @id @default(autoincrement())\n  nome            String    @db.VarChar(100)\n  sinopse         String?   @db.Text\n  data_lancamento DateTime? @db.Date\n  duracao         DateTime  @db.Time(0)\n  orcamento       Decimal   @db.Decimal(11, 2)\n  capa            String    @db.VarChar(200)\n  trailler        String?   @db.VarChar(200)\n}\n",
+  "inlineSchemaHash": "e69e2b2ecdcec64e3c49f9e548cc0413d0830a2f313a989e189995cfb68788cf",
   "copyEngine": true
 }
 config.dirname = '/'
 
-config.runtimeDataModel = JSON.parse("{\"models\":{\"tbl_teste\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"nome\",\"kind\":\"scalar\",\"type\":\"String\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
+config.runtimeDataModel = JSON.parse("{\"models\":{\"tbl_filme\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"nome\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"sinopse\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"data_lancamento\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"duracao\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"orcamento\",\"kind\":\"scalar\",\"type\":\"Decimal\"},{\"name\":\"capa\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"trailler\",\"kind\":\"scalar\",\"type\":\"String\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
 defineDmmfProperty(exports.Prisma, config.runtimeDataModel)
 config.engineWasm = {
   getRuntime: async () => require('./query_engine_bg.js'),

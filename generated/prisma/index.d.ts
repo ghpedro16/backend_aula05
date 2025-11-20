@@ -14,10 +14,10 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
 
 
 /**
- * Model tbl_teste
+ * Model tbl_filme
  * 
  */
-export type tbl_teste = $Result.DefaultSelection<Prisma.$tbl_testePayload>
+export type tbl_filme = $Result.DefaultSelection<Prisma.$tbl_filmePayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -26,8 +26,8 @@ export type tbl_teste = $Result.DefaultSelection<Prisma.$tbl_testePayload>
  * @example
  * ```
  * const prisma = new PrismaClient()
- * // Fetch zero or more Tbl_testes
- * const tbl_testes = await prisma.tbl_teste.findMany()
+ * // Fetch zero or more Tbl_filmes
+ * const tbl_filmes = await prisma.tbl_filme.findMany()
  * ```
  *
  *
@@ -47,8 +47,8 @@ export class PrismaClient<
    * @example
    * ```
    * const prisma = new PrismaClient()
-   * // Fetch zero or more Tbl_testes
-   * const tbl_testes = await prisma.tbl_teste.findMany()
+   * // Fetch zero or more Tbl_filmes
+   * const tbl_filmes = await prisma.tbl_filme.findMany()
    * ```
    *
    *
@@ -138,14 +138,14 @@ export class PrismaClient<
   }>>
 
       /**
-   * `prisma.tbl_teste`: Exposes CRUD operations for the **tbl_teste** model.
+   * `prisma.tbl_filme`: Exposes CRUD operations for the **tbl_filme** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Tbl_testes
-    * const tbl_testes = await prisma.tbl_teste.findMany()
+    * // Fetch zero or more Tbl_filmes
+    * const tbl_filmes = await prisma.tbl_filme.findMany()
     * ```
     */
-  get tbl_teste(): Prisma.tbl_testeDelegate<ExtArgs, ClientOptions>;
+  get tbl_filme(): Prisma.tbl_filmeDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -586,7 +586,7 @@ export namespace Prisma {
 
 
   export const ModelName: {
-    tbl_teste: 'tbl_teste'
+    tbl_filme: 'tbl_filme'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -605,73 +605,73 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "tbl_teste"
+      modelProps: "tbl_filme"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
-      tbl_teste: {
-        payload: Prisma.$tbl_testePayload<ExtArgs>
-        fields: Prisma.tbl_testeFieldRefs
+      tbl_filme: {
+        payload: Prisma.$tbl_filmePayload<ExtArgs>
+        fields: Prisma.tbl_filmeFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.tbl_testeFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$tbl_testePayload> | null
+            args: Prisma.tbl_filmeFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tbl_filmePayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.tbl_testeFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$tbl_testePayload>
+            args: Prisma.tbl_filmeFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tbl_filmePayload>
           }
           findFirst: {
-            args: Prisma.tbl_testeFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$tbl_testePayload> | null
+            args: Prisma.tbl_filmeFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tbl_filmePayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.tbl_testeFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$tbl_testePayload>
+            args: Prisma.tbl_filmeFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tbl_filmePayload>
           }
           findMany: {
-            args: Prisma.tbl_testeFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$tbl_testePayload>[]
+            args: Prisma.tbl_filmeFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tbl_filmePayload>[]
           }
           create: {
-            args: Prisma.tbl_testeCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$tbl_testePayload>
+            args: Prisma.tbl_filmeCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tbl_filmePayload>
           }
           createMany: {
-            args: Prisma.tbl_testeCreateManyArgs<ExtArgs>
+            args: Prisma.tbl_filmeCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           delete: {
-            args: Prisma.tbl_testeDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$tbl_testePayload>
+            args: Prisma.tbl_filmeDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tbl_filmePayload>
           }
           update: {
-            args: Prisma.tbl_testeUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$tbl_testePayload>
+            args: Prisma.tbl_filmeUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tbl_filmePayload>
           }
           deleteMany: {
-            args: Prisma.tbl_testeDeleteManyArgs<ExtArgs>
+            args: Prisma.tbl_filmeDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.tbl_testeUpdateManyArgs<ExtArgs>
+            args: Prisma.tbl_filmeUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           upsert: {
-            args: Prisma.tbl_testeUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$tbl_testePayload>
+            args: Prisma.tbl_filmeUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tbl_filmePayload>
           }
           aggregate: {
-            args: Prisma.Tbl_testeAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateTbl_teste>
+            args: Prisma.Tbl_filmeAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTbl_filme>
           }
           groupBy: {
-            args: Prisma.tbl_testeGroupByArgs<ExtArgs>
-            result: $Utils.Optional<Tbl_testeGroupByOutputType>[]
+            args: Prisma.tbl_filmeGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Tbl_filmeGroupByOutputType>[]
           }
           count: {
-            args: Prisma.tbl_testeCountArgs<ExtArgs>
-            result: $Utils.Optional<Tbl_testeCountAggregateOutputType> | number
+            args: Prisma.tbl_filmeCountArgs<ExtArgs>
+            result: $Utils.Optional<Tbl_filmeCountAggregateOutputType> | number
           }
         }
       }
@@ -771,7 +771,7 @@ export namespace Prisma {
     omit?: Prisma.GlobalOmitConfig
   }
   export type GlobalOmitConfig = {
-    tbl_teste?: tbl_testeOmit
+    tbl_filme?: tbl_filmeOmit
   }
 
   /* Types for Logging */
@@ -853,333 +853,397 @@ export namespace Prisma {
    */
 
   /**
-   * Model tbl_teste
+   * Model tbl_filme
    */
 
-  export type AggregateTbl_teste = {
-    _count: Tbl_testeCountAggregateOutputType | null
-    _avg: Tbl_testeAvgAggregateOutputType | null
-    _sum: Tbl_testeSumAggregateOutputType | null
-    _min: Tbl_testeMinAggregateOutputType | null
-    _max: Tbl_testeMaxAggregateOutputType | null
+  export type AggregateTbl_filme = {
+    _count: Tbl_filmeCountAggregateOutputType | null
+    _avg: Tbl_filmeAvgAggregateOutputType | null
+    _sum: Tbl_filmeSumAggregateOutputType | null
+    _min: Tbl_filmeMinAggregateOutputType | null
+    _max: Tbl_filmeMaxAggregateOutputType | null
   }
 
-  export type Tbl_testeAvgAggregateOutputType = {
+  export type Tbl_filmeAvgAggregateOutputType = {
     id: number | null
+    orcamento: Decimal | null
   }
 
-  export type Tbl_testeSumAggregateOutputType = {
+  export type Tbl_filmeSumAggregateOutputType = {
     id: number | null
+    orcamento: Decimal | null
   }
 
-  export type Tbl_testeMinAggregateOutputType = {
-    id: number | null
-    nome: string | null
-  }
-
-  export type Tbl_testeMaxAggregateOutputType = {
+  export type Tbl_filmeMinAggregateOutputType = {
     id: number | null
     nome: string | null
+    sinopse: string | null
+    data_lancamento: Date | null
+    duracao: Date | null
+    orcamento: Decimal | null
+    capa: string | null
+    trailler: string | null
   }
 
-  export type Tbl_testeCountAggregateOutputType = {
+  export type Tbl_filmeMaxAggregateOutputType = {
+    id: number | null
+    nome: string | null
+    sinopse: string | null
+    data_lancamento: Date | null
+    duracao: Date | null
+    orcamento: Decimal | null
+    capa: string | null
+    trailler: string | null
+  }
+
+  export type Tbl_filmeCountAggregateOutputType = {
     id: number
     nome: number
+    sinopse: number
+    data_lancamento: number
+    duracao: number
+    orcamento: number
+    capa: number
+    trailler: number
     _all: number
   }
 
 
-  export type Tbl_testeAvgAggregateInputType = {
+  export type Tbl_filmeAvgAggregateInputType = {
     id?: true
+    orcamento?: true
   }
 
-  export type Tbl_testeSumAggregateInputType = {
+  export type Tbl_filmeSumAggregateInputType = {
     id?: true
+    orcamento?: true
   }
 
-  export type Tbl_testeMinAggregateInputType = {
+  export type Tbl_filmeMinAggregateInputType = {
     id?: true
     nome?: true
+    sinopse?: true
+    data_lancamento?: true
+    duracao?: true
+    orcamento?: true
+    capa?: true
+    trailler?: true
   }
 
-  export type Tbl_testeMaxAggregateInputType = {
+  export type Tbl_filmeMaxAggregateInputType = {
     id?: true
     nome?: true
+    sinopse?: true
+    data_lancamento?: true
+    duracao?: true
+    orcamento?: true
+    capa?: true
+    trailler?: true
   }
 
-  export type Tbl_testeCountAggregateInputType = {
+  export type Tbl_filmeCountAggregateInputType = {
     id?: true
     nome?: true
+    sinopse?: true
+    data_lancamento?: true
+    duracao?: true
+    orcamento?: true
+    capa?: true
+    trailler?: true
     _all?: true
   }
 
-  export type Tbl_testeAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Tbl_filmeAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which tbl_teste to aggregate.
+     * Filter which tbl_filme to aggregate.
      */
-    where?: tbl_testeWhereInput
+    where?: tbl_filmeWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of tbl_testes to fetch.
+     * Determine the order of tbl_filmes to fetch.
      */
-    orderBy?: tbl_testeOrderByWithRelationInput | tbl_testeOrderByWithRelationInput[]
+    orderBy?: tbl_filmeOrderByWithRelationInput | tbl_filmeOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: tbl_testeWhereUniqueInput
+    cursor?: tbl_filmeWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` tbl_testes from the position of the cursor.
+     * Take `±n` tbl_filmes from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` tbl_testes.
+     * Skip the first `n` tbl_filmes.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned tbl_testes
+     * Count returned tbl_filmes
     **/
-    _count?: true | Tbl_testeCountAggregateInputType
+    _count?: true | Tbl_filmeCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: Tbl_testeAvgAggregateInputType
+    _avg?: Tbl_filmeAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: Tbl_testeSumAggregateInputType
+    _sum?: Tbl_filmeSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: Tbl_testeMinAggregateInputType
+    _min?: Tbl_filmeMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: Tbl_testeMaxAggregateInputType
+    _max?: Tbl_filmeMaxAggregateInputType
   }
 
-  export type GetTbl_testeAggregateType<T extends Tbl_testeAggregateArgs> = {
-        [P in keyof T & keyof AggregateTbl_teste]: P extends '_count' | 'count'
+  export type GetTbl_filmeAggregateType<T extends Tbl_filmeAggregateArgs> = {
+        [P in keyof T & keyof AggregateTbl_filme]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateTbl_teste[P]>
-      : GetScalarType<T[P], AggregateTbl_teste[P]>
+        : GetScalarType<T[P], AggregateTbl_filme[P]>
+      : GetScalarType<T[P], AggregateTbl_filme[P]>
   }
 
 
 
 
-  export type tbl_testeGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: tbl_testeWhereInput
-    orderBy?: tbl_testeOrderByWithAggregationInput | tbl_testeOrderByWithAggregationInput[]
-    by: Tbl_testeScalarFieldEnum[] | Tbl_testeScalarFieldEnum
-    having?: tbl_testeScalarWhereWithAggregatesInput
+  export type tbl_filmeGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: tbl_filmeWhereInput
+    orderBy?: tbl_filmeOrderByWithAggregationInput | tbl_filmeOrderByWithAggregationInput[]
+    by: Tbl_filmeScalarFieldEnum[] | Tbl_filmeScalarFieldEnum
+    having?: tbl_filmeScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: Tbl_testeCountAggregateInputType | true
-    _avg?: Tbl_testeAvgAggregateInputType
-    _sum?: Tbl_testeSumAggregateInputType
-    _min?: Tbl_testeMinAggregateInputType
-    _max?: Tbl_testeMaxAggregateInputType
+    _count?: Tbl_filmeCountAggregateInputType | true
+    _avg?: Tbl_filmeAvgAggregateInputType
+    _sum?: Tbl_filmeSumAggregateInputType
+    _min?: Tbl_filmeMinAggregateInputType
+    _max?: Tbl_filmeMaxAggregateInputType
   }
 
-  export type Tbl_testeGroupByOutputType = {
+  export type Tbl_filmeGroupByOutputType = {
     id: number
     nome: string
-    _count: Tbl_testeCountAggregateOutputType | null
-    _avg: Tbl_testeAvgAggregateOutputType | null
-    _sum: Tbl_testeSumAggregateOutputType | null
-    _min: Tbl_testeMinAggregateOutputType | null
-    _max: Tbl_testeMaxAggregateOutputType | null
+    sinopse: string | null
+    data_lancamento: Date | null
+    duracao: Date
+    orcamento: Decimal
+    capa: string
+    trailler: string | null
+    _count: Tbl_filmeCountAggregateOutputType | null
+    _avg: Tbl_filmeAvgAggregateOutputType | null
+    _sum: Tbl_filmeSumAggregateOutputType | null
+    _min: Tbl_filmeMinAggregateOutputType | null
+    _max: Tbl_filmeMaxAggregateOutputType | null
   }
 
-  type GetTbl_testeGroupByPayload<T extends tbl_testeGroupByArgs> = Prisma.PrismaPromise<
+  type GetTbl_filmeGroupByPayload<T extends tbl_filmeGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<Tbl_testeGroupByOutputType, T['by']> &
+      PickEnumerable<Tbl_filmeGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof Tbl_testeGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof Tbl_filmeGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], Tbl_testeGroupByOutputType[P]>
-            : GetScalarType<T[P], Tbl_testeGroupByOutputType[P]>
+              : GetScalarType<T[P], Tbl_filmeGroupByOutputType[P]>
+            : GetScalarType<T[P], Tbl_filmeGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type tbl_testeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type tbl_filmeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     nome?: boolean
-  }, ExtArgs["result"]["tbl_teste"]>
+    sinopse?: boolean
+    data_lancamento?: boolean
+    duracao?: boolean
+    orcamento?: boolean
+    capa?: boolean
+    trailler?: boolean
+  }, ExtArgs["result"]["tbl_filme"]>
 
 
 
-  export type tbl_testeSelectScalar = {
+  export type tbl_filmeSelectScalar = {
     id?: boolean
     nome?: boolean
+    sinopse?: boolean
+    data_lancamento?: boolean
+    duracao?: boolean
+    orcamento?: boolean
+    capa?: boolean
+    trailler?: boolean
   }
 
-  export type tbl_testeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nome", ExtArgs["result"]["tbl_teste"]>
+  export type tbl_filmeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nome" | "sinopse" | "data_lancamento" | "duracao" | "orcamento" | "capa" | "trailler", ExtArgs["result"]["tbl_filme"]>
 
-  export type $tbl_testePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "tbl_teste"
+  export type $tbl_filmePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "tbl_filme"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id: number
       nome: string
-    }, ExtArgs["result"]["tbl_teste"]>
+      sinopse: string | null
+      data_lancamento: Date | null
+      duracao: Date
+      orcamento: Prisma.Decimal
+      capa: string
+      trailler: string | null
+    }, ExtArgs["result"]["tbl_filme"]>
     composites: {}
   }
 
-  type tbl_testeGetPayload<S extends boolean | null | undefined | tbl_testeDefaultArgs> = $Result.GetResult<Prisma.$tbl_testePayload, S>
+  type tbl_filmeGetPayload<S extends boolean | null | undefined | tbl_filmeDefaultArgs> = $Result.GetResult<Prisma.$tbl_filmePayload, S>
 
-  type tbl_testeCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<tbl_testeFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: Tbl_testeCountAggregateInputType | true
+  type tbl_filmeCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<tbl_filmeFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Tbl_filmeCountAggregateInputType | true
     }
 
-  export interface tbl_testeDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['tbl_teste'], meta: { name: 'tbl_teste' } }
+  export interface tbl_filmeDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['tbl_filme'], meta: { name: 'tbl_filme' } }
     /**
-     * Find zero or one Tbl_teste that matches the filter.
-     * @param {tbl_testeFindUniqueArgs} args - Arguments to find a Tbl_teste
+     * Find zero or one Tbl_filme that matches the filter.
+     * @param {tbl_filmeFindUniqueArgs} args - Arguments to find a Tbl_filme
      * @example
-     * // Get one Tbl_teste
-     * const tbl_teste = await prisma.tbl_teste.findUnique({
+     * // Get one Tbl_filme
+     * const tbl_filme = await prisma.tbl_filme.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends tbl_testeFindUniqueArgs>(args: SelectSubset<T, tbl_testeFindUniqueArgs<ExtArgs>>): Prisma__tbl_testeClient<$Result.GetResult<Prisma.$tbl_testePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends tbl_filmeFindUniqueArgs>(args: SelectSubset<T, tbl_filmeFindUniqueArgs<ExtArgs>>): Prisma__tbl_filmeClient<$Result.GetResult<Prisma.$tbl_filmePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one Tbl_teste that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Tbl_filme that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {tbl_testeFindUniqueOrThrowArgs} args - Arguments to find a Tbl_teste
+     * @param {tbl_filmeFindUniqueOrThrowArgs} args - Arguments to find a Tbl_filme
      * @example
-     * // Get one Tbl_teste
-     * const tbl_teste = await prisma.tbl_teste.findUniqueOrThrow({
+     * // Get one Tbl_filme
+     * const tbl_filme = await prisma.tbl_filme.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends tbl_testeFindUniqueOrThrowArgs>(args: SelectSubset<T, tbl_testeFindUniqueOrThrowArgs<ExtArgs>>): Prisma__tbl_testeClient<$Result.GetResult<Prisma.$tbl_testePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends tbl_filmeFindUniqueOrThrowArgs>(args: SelectSubset<T, tbl_filmeFindUniqueOrThrowArgs<ExtArgs>>): Prisma__tbl_filmeClient<$Result.GetResult<Prisma.$tbl_filmePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Tbl_teste that matches the filter.
+     * Find the first Tbl_filme that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {tbl_testeFindFirstArgs} args - Arguments to find a Tbl_teste
+     * @param {tbl_filmeFindFirstArgs} args - Arguments to find a Tbl_filme
      * @example
-     * // Get one Tbl_teste
-     * const tbl_teste = await prisma.tbl_teste.findFirst({
+     * // Get one Tbl_filme
+     * const tbl_filme = await prisma.tbl_filme.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends tbl_testeFindFirstArgs>(args?: SelectSubset<T, tbl_testeFindFirstArgs<ExtArgs>>): Prisma__tbl_testeClient<$Result.GetResult<Prisma.$tbl_testePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends tbl_filmeFindFirstArgs>(args?: SelectSubset<T, tbl_filmeFindFirstArgs<ExtArgs>>): Prisma__tbl_filmeClient<$Result.GetResult<Prisma.$tbl_filmePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Tbl_teste that matches the filter or
+     * Find the first Tbl_filme that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {tbl_testeFindFirstOrThrowArgs} args - Arguments to find a Tbl_teste
+     * @param {tbl_filmeFindFirstOrThrowArgs} args - Arguments to find a Tbl_filme
      * @example
-     * // Get one Tbl_teste
-     * const tbl_teste = await prisma.tbl_teste.findFirstOrThrow({
+     * // Get one Tbl_filme
+     * const tbl_filme = await prisma.tbl_filme.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends tbl_testeFindFirstOrThrowArgs>(args?: SelectSubset<T, tbl_testeFindFirstOrThrowArgs<ExtArgs>>): Prisma__tbl_testeClient<$Result.GetResult<Prisma.$tbl_testePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends tbl_filmeFindFirstOrThrowArgs>(args?: SelectSubset<T, tbl_filmeFindFirstOrThrowArgs<ExtArgs>>): Prisma__tbl_filmeClient<$Result.GetResult<Prisma.$tbl_filmePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Tbl_testes that matches the filter.
+     * Find zero or more Tbl_filmes that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {tbl_testeFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {tbl_filmeFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Tbl_testes
-     * const tbl_testes = await prisma.tbl_teste.findMany()
+     * // Get all Tbl_filmes
+     * const tbl_filmes = await prisma.tbl_filme.findMany()
      * 
-     * // Get first 10 Tbl_testes
-     * const tbl_testes = await prisma.tbl_teste.findMany({ take: 10 })
+     * // Get first 10 Tbl_filmes
+     * const tbl_filmes = await prisma.tbl_filme.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const tbl_testeWithIdOnly = await prisma.tbl_teste.findMany({ select: { id: true } })
+     * const tbl_filmeWithIdOnly = await prisma.tbl_filme.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends tbl_testeFindManyArgs>(args?: SelectSubset<T, tbl_testeFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$tbl_testePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends tbl_filmeFindManyArgs>(args?: SelectSubset<T, tbl_filmeFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$tbl_filmePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a Tbl_teste.
-     * @param {tbl_testeCreateArgs} args - Arguments to create a Tbl_teste.
+     * Create a Tbl_filme.
+     * @param {tbl_filmeCreateArgs} args - Arguments to create a Tbl_filme.
      * @example
-     * // Create one Tbl_teste
-     * const Tbl_teste = await prisma.tbl_teste.create({
+     * // Create one Tbl_filme
+     * const Tbl_filme = await prisma.tbl_filme.create({
      *   data: {
-     *     // ... data to create a Tbl_teste
+     *     // ... data to create a Tbl_filme
      *   }
      * })
      * 
      */
-    create<T extends tbl_testeCreateArgs>(args: SelectSubset<T, tbl_testeCreateArgs<ExtArgs>>): Prisma__tbl_testeClient<$Result.GetResult<Prisma.$tbl_testePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends tbl_filmeCreateArgs>(args: SelectSubset<T, tbl_filmeCreateArgs<ExtArgs>>): Prisma__tbl_filmeClient<$Result.GetResult<Prisma.$tbl_filmePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many Tbl_testes.
-     * @param {tbl_testeCreateManyArgs} args - Arguments to create many Tbl_testes.
+     * Create many Tbl_filmes.
+     * @param {tbl_filmeCreateManyArgs} args - Arguments to create many Tbl_filmes.
      * @example
-     * // Create many Tbl_testes
-     * const tbl_teste = await prisma.tbl_teste.createMany({
+     * // Create many Tbl_filmes
+     * const tbl_filme = await prisma.tbl_filme.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends tbl_testeCreateManyArgs>(args?: SelectSubset<T, tbl_testeCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends tbl_filmeCreateManyArgs>(args?: SelectSubset<T, tbl_filmeCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Delete a Tbl_teste.
-     * @param {tbl_testeDeleteArgs} args - Arguments to delete one Tbl_teste.
+     * Delete a Tbl_filme.
+     * @param {tbl_filmeDeleteArgs} args - Arguments to delete one Tbl_filme.
      * @example
-     * // Delete one Tbl_teste
-     * const Tbl_teste = await prisma.tbl_teste.delete({
+     * // Delete one Tbl_filme
+     * const Tbl_filme = await prisma.tbl_filme.delete({
      *   where: {
-     *     // ... filter to delete one Tbl_teste
+     *     // ... filter to delete one Tbl_filme
      *   }
      * })
      * 
      */
-    delete<T extends tbl_testeDeleteArgs>(args: SelectSubset<T, tbl_testeDeleteArgs<ExtArgs>>): Prisma__tbl_testeClient<$Result.GetResult<Prisma.$tbl_testePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends tbl_filmeDeleteArgs>(args: SelectSubset<T, tbl_filmeDeleteArgs<ExtArgs>>): Prisma__tbl_filmeClient<$Result.GetResult<Prisma.$tbl_filmePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one Tbl_teste.
-     * @param {tbl_testeUpdateArgs} args - Arguments to update one Tbl_teste.
+     * Update one Tbl_filme.
+     * @param {tbl_filmeUpdateArgs} args - Arguments to update one Tbl_filme.
      * @example
-     * // Update one Tbl_teste
-     * const tbl_teste = await prisma.tbl_teste.update({
+     * // Update one Tbl_filme
+     * const tbl_filme = await prisma.tbl_filme.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1189,30 +1253,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends tbl_testeUpdateArgs>(args: SelectSubset<T, tbl_testeUpdateArgs<ExtArgs>>): Prisma__tbl_testeClient<$Result.GetResult<Prisma.$tbl_testePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends tbl_filmeUpdateArgs>(args: SelectSubset<T, tbl_filmeUpdateArgs<ExtArgs>>): Prisma__tbl_filmeClient<$Result.GetResult<Prisma.$tbl_filmePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more Tbl_testes.
-     * @param {tbl_testeDeleteManyArgs} args - Arguments to filter Tbl_testes to delete.
+     * Delete zero or more Tbl_filmes.
+     * @param {tbl_filmeDeleteManyArgs} args - Arguments to filter Tbl_filmes to delete.
      * @example
-     * // Delete a few Tbl_testes
-     * const { count } = await prisma.tbl_teste.deleteMany({
+     * // Delete a few Tbl_filmes
+     * const { count } = await prisma.tbl_filme.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends tbl_testeDeleteManyArgs>(args?: SelectSubset<T, tbl_testeDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends tbl_filmeDeleteManyArgs>(args?: SelectSubset<T, tbl_filmeDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Tbl_testes.
+     * Update zero or more Tbl_filmes.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {tbl_testeUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {tbl_filmeUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Tbl_testes
-     * const tbl_teste = await prisma.tbl_teste.updateMany({
+     * // Update many Tbl_filmes
+     * const tbl_filme = await prisma.tbl_filme.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1222,56 +1286,56 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends tbl_testeUpdateManyArgs>(args: SelectSubset<T, tbl_testeUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends tbl_filmeUpdateManyArgs>(args: SelectSubset<T, tbl_filmeUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create or update one Tbl_teste.
-     * @param {tbl_testeUpsertArgs} args - Arguments to update or create a Tbl_teste.
+     * Create or update one Tbl_filme.
+     * @param {tbl_filmeUpsertArgs} args - Arguments to update or create a Tbl_filme.
      * @example
-     * // Update or create a Tbl_teste
-     * const tbl_teste = await prisma.tbl_teste.upsert({
+     * // Update or create a Tbl_filme
+     * const tbl_filme = await prisma.tbl_filme.upsert({
      *   create: {
-     *     // ... data to create a Tbl_teste
+     *     // ... data to create a Tbl_filme
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Tbl_teste we want to update
+     *     // ... the filter for the Tbl_filme we want to update
      *   }
      * })
      */
-    upsert<T extends tbl_testeUpsertArgs>(args: SelectSubset<T, tbl_testeUpsertArgs<ExtArgs>>): Prisma__tbl_testeClient<$Result.GetResult<Prisma.$tbl_testePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends tbl_filmeUpsertArgs>(args: SelectSubset<T, tbl_filmeUpsertArgs<ExtArgs>>): Prisma__tbl_filmeClient<$Result.GetResult<Prisma.$tbl_filmePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of Tbl_testes.
+     * Count the number of Tbl_filmes.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {tbl_testeCountArgs} args - Arguments to filter Tbl_testes to count.
+     * @param {tbl_filmeCountArgs} args - Arguments to filter Tbl_filmes to count.
      * @example
-     * // Count the number of Tbl_testes
-     * const count = await prisma.tbl_teste.count({
+     * // Count the number of Tbl_filmes
+     * const count = await prisma.tbl_filme.count({
      *   where: {
-     *     // ... the filter for the Tbl_testes we want to count
+     *     // ... the filter for the Tbl_filmes we want to count
      *   }
      * })
     **/
-    count<T extends tbl_testeCountArgs>(
-      args?: Subset<T, tbl_testeCountArgs>,
+    count<T extends tbl_filmeCountArgs>(
+      args?: Subset<T, tbl_filmeCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], Tbl_testeCountAggregateOutputType>
+          : GetScalarType<T['select'], Tbl_filmeCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Tbl_teste.
+     * Allows you to perform aggregations operations on a Tbl_filme.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {Tbl_testeAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {Tbl_filmeAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -1291,13 +1355,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends Tbl_testeAggregateArgs>(args: Subset<T, Tbl_testeAggregateArgs>): Prisma.PrismaPromise<GetTbl_testeAggregateType<T>>
+    aggregate<T extends Tbl_filmeAggregateArgs>(args: Subset<T, Tbl_filmeAggregateArgs>): Prisma.PrismaPromise<GetTbl_filmeAggregateType<T>>
 
     /**
-     * Group by Tbl_teste.
+     * Group by Tbl_filme.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {tbl_testeGroupByArgs} args - Group by arguments.
+     * @param {tbl_filmeGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -1312,14 +1376,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends tbl_testeGroupByArgs,
+      T extends tbl_filmeGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: tbl_testeGroupByArgs['orderBy'] }
-        : { orderBy?: tbl_testeGroupByArgs['orderBy'] },
+        ? { orderBy: tbl_filmeGroupByArgs['orderBy'] }
+        : { orderBy?: tbl_filmeGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -1368,20 +1432,20 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, tbl_testeGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTbl_testeGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, tbl_filmeGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTbl_filmeGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the tbl_teste model
+   * Fields of the tbl_filme model
    */
-  readonly fields: tbl_testeFieldRefs;
+  readonly fields: tbl_filmeFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for tbl_teste.
+   * The delegate class that acts as a "Promise-like" for tbl_filme.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__tbl_testeClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__tbl_filmeClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -1409,329 +1473,335 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the tbl_teste model
+   * Fields of the tbl_filme model
    */
-  interface tbl_testeFieldRefs {
-    readonly id: FieldRef<"tbl_teste", 'Int'>
-    readonly nome: FieldRef<"tbl_teste", 'String'>
+  interface tbl_filmeFieldRefs {
+    readonly id: FieldRef<"tbl_filme", 'Int'>
+    readonly nome: FieldRef<"tbl_filme", 'String'>
+    readonly sinopse: FieldRef<"tbl_filme", 'String'>
+    readonly data_lancamento: FieldRef<"tbl_filme", 'DateTime'>
+    readonly duracao: FieldRef<"tbl_filme", 'DateTime'>
+    readonly orcamento: FieldRef<"tbl_filme", 'Decimal'>
+    readonly capa: FieldRef<"tbl_filme", 'String'>
+    readonly trailler: FieldRef<"tbl_filme", 'String'>
   }
     
 
   // Custom InputTypes
   /**
-   * tbl_teste findUnique
+   * tbl_filme findUnique
    */
-  export type tbl_testeFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tbl_filmeFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the tbl_teste
+     * Select specific fields to fetch from the tbl_filme
      */
-    select?: tbl_testeSelect<ExtArgs> | null
+    select?: tbl_filmeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the tbl_teste
+     * Omit specific fields from the tbl_filme
      */
-    omit?: tbl_testeOmit<ExtArgs> | null
+    omit?: tbl_filmeOmit<ExtArgs> | null
     /**
-     * Filter, which tbl_teste to fetch.
+     * Filter, which tbl_filme to fetch.
      */
-    where: tbl_testeWhereUniqueInput
+    where: tbl_filmeWhereUniqueInput
   }
 
   /**
-   * tbl_teste findUniqueOrThrow
+   * tbl_filme findUniqueOrThrow
    */
-  export type tbl_testeFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tbl_filmeFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the tbl_teste
+     * Select specific fields to fetch from the tbl_filme
      */
-    select?: tbl_testeSelect<ExtArgs> | null
+    select?: tbl_filmeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the tbl_teste
+     * Omit specific fields from the tbl_filme
      */
-    omit?: tbl_testeOmit<ExtArgs> | null
+    omit?: tbl_filmeOmit<ExtArgs> | null
     /**
-     * Filter, which tbl_teste to fetch.
+     * Filter, which tbl_filme to fetch.
      */
-    where: tbl_testeWhereUniqueInput
+    where: tbl_filmeWhereUniqueInput
   }
 
   /**
-   * tbl_teste findFirst
+   * tbl_filme findFirst
    */
-  export type tbl_testeFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tbl_filmeFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the tbl_teste
+     * Select specific fields to fetch from the tbl_filme
      */
-    select?: tbl_testeSelect<ExtArgs> | null
+    select?: tbl_filmeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the tbl_teste
+     * Omit specific fields from the tbl_filme
      */
-    omit?: tbl_testeOmit<ExtArgs> | null
+    omit?: tbl_filmeOmit<ExtArgs> | null
     /**
-     * Filter, which tbl_teste to fetch.
+     * Filter, which tbl_filme to fetch.
      */
-    where?: tbl_testeWhereInput
+    where?: tbl_filmeWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of tbl_testes to fetch.
+     * Determine the order of tbl_filmes to fetch.
      */
-    orderBy?: tbl_testeOrderByWithRelationInput | tbl_testeOrderByWithRelationInput[]
+    orderBy?: tbl_filmeOrderByWithRelationInput | tbl_filmeOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for tbl_testes.
+     * Sets the position for searching for tbl_filmes.
      */
-    cursor?: tbl_testeWhereUniqueInput
+    cursor?: tbl_filmeWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` tbl_testes from the position of the cursor.
+     * Take `±n` tbl_filmes from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` tbl_testes.
+     * Skip the first `n` tbl_filmes.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of tbl_testes.
+     * Filter by unique combinations of tbl_filmes.
      */
-    distinct?: Tbl_testeScalarFieldEnum | Tbl_testeScalarFieldEnum[]
+    distinct?: Tbl_filmeScalarFieldEnum | Tbl_filmeScalarFieldEnum[]
   }
 
   /**
-   * tbl_teste findFirstOrThrow
+   * tbl_filme findFirstOrThrow
    */
-  export type tbl_testeFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tbl_filmeFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the tbl_teste
+     * Select specific fields to fetch from the tbl_filme
      */
-    select?: tbl_testeSelect<ExtArgs> | null
+    select?: tbl_filmeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the tbl_teste
+     * Omit specific fields from the tbl_filme
      */
-    omit?: tbl_testeOmit<ExtArgs> | null
+    omit?: tbl_filmeOmit<ExtArgs> | null
     /**
-     * Filter, which tbl_teste to fetch.
+     * Filter, which tbl_filme to fetch.
      */
-    where?: tbl_testeWhereInput
+    where?: tbl_filmeWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of tbl_testes to fetch.
+     * Determine the order of tbl_filmes to fetch.
      */
-    orderBy?: tbl_testeOrderByWithRelationInput | tbl_testeOrderByWithRelationInput[]
+    orderBy?: tbl_filmeOrderByWithRelationInput | tbl_filmeOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for tbl_testes.
+     * Sets the position for searching for tbl_filmes.
      */
-    cursor?: tbl_testeWhereUniqueInput
+    cursor?: tbl_filmeWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` tbl_testes from the position of the cursor.
+     * Take `±n` tbl_filmes from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` tbl_testes.
+     * Skip the first `n` tbl_filmes.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of tbl_testes.
+     * Filter by unique combinations of tbl_filmes.
      */
-    distinct?: Tbl_testeScalarFieldEnum | Tbl_testeScalarFieldEnum[]
+    distinct?: Tbl_filmeScalarFieldEnum | Tbl_filmeScalarFieldEnum[]
   }
 
   /**
-   * tbl_teste findMany
+   * tbl_filme findMany
    */
-  export type tbl_testeFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tbl_filmeFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the tbl_teste
+     * Select specific fields to fetch from the tbl_filme
      */
-    select?: tbl_testeSelect<ExtArgs> | null
+    select?: tbl_filmeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the tbl_teste
+     * Omit specific fields from the tbl_filme
      */
-    omit?: tbl_testeOmit<ExtArgs> | null
+    omit?: tbl_filmeOmit<ExtArgs> | null
     /**
-     * Filter, which tbl_testes to fetch.
+     * Filter, which tbl_filmes to fetch.
      */
-    where?: tbl_testeWhereInput
+    where?: tbl_filmeWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of tbl_testes to fetch.
+     * Determine the order of tbl_filmes to fetch.
      */
-    orderBy?: tbl_testeOrderByWithRelationInput | tbl_testeOrderByWithRelationInput[]
+    orderBy?: tbl_filmeOrderByWithRelationInput | tbl_filmeOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing tbl_testes.
+     * Sets the position for listing tbl_filmes.
      */
-    cursor?: tbl_testeWhereUniqueInput
+    cursor?: tbl_filmeWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` tbl_testes from the position of the cursor.
+     * Take `±n` tbl_filmes from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` tbl_testes.
+     * Skip the first `n` tbl_filmes.
      */
     skip?: number
-    distinct?: Tbl_testeScalarFieldEnum | Tbl_testeScalarFieldEnum[]
+    distinct?: Tbl_filmeScalarFieldEnum | Tbl_filmeScalarFieldEnum[]
   }
 
   /**
-   * tbl_teste create
+   * tbl_filme create
    */
-  export type tbl_testeCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tbl_filmeCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the tbl_teste
+     * Select specific fields to fetch from the tbl_filme
      */
-    select?: tbl_testeSelect<ExtArgs> | null
+    select?: tbl_filmeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the tbl_teste
+     * Omit specific fields from the tbl_filme
      */
-    omit?: tbl_testeOmit<ExtArgs> | null
+    omit?: tbl_filmeOmit<ExtArgs> | null
     /**
-     * The data needed to create a tbl_teste.
+     * The data needed to create a tbl_filme.
      */
-    data: XOR<tbl_testeCreateInput, tbl_testeUncheckedCreateInput>
+    data: XOR<tbl_filmeCreateInput, tbl_filmeUncheckedCreateInput>
   }
 
   /**
-   * tbl_teste createMany
+   * tbl_filme createMany
    */
-  export type tbl_testeCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tbl_filmeCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many tbl_testes.
+     * The data used to create many tbl_filmes.
      */
-    data: tbl_testeCreateManyInput | tbl_testeCreateManyInput[]
+    data: tbl_filmeCreateManyInput | tbl_filmeCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * tbl_teste update
+   * tbl_filme update
    */
-  export type tbl_testeUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tbl_filmeUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the tbl_teste
+     * Select specific fields to fetch from the tbl_filme
      */
-    select?: tbl_testeSelect<ExtArgs> | null
+    select?: tbl_filmeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the tbl_teste
+     * Omit specific fields from the tbl_filme
      */
-    omit?: tbl_testeOmit<ExtArgs> | null
+    omit?: tbl_filmeOmit<ExtArgs> | null
     /**
-     * The data needed to update a tbl_teste.
+     * The data needed to update a tbl_filme.
      */
-    data: XOR<tbl_testeUpdateInput, tbl_testeUncheckedUpdateInput>
+    data: XOR<tbl_filmeUpdateInput, tbl_filmeUncheckedUpdateInput>
     /**
-     * Choose, which tbl_teste to update.
+     * Choose, which tbl_filme to update.
      */
-    where: tbl_testeWhereUniqueInput
+    where: tbl_filmeWhereUniqueInput
   }
 
   /**
-   * tbl_teste updateMany
+   * tbl_filme updateMany
    */
-  export type tbl_testeUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tbl_filmeUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update tbl_testes.
+     * The data used to update tbl_filmes.
      */
-    data: XOR<tbl_testeUpdateManyMutationInput, tbl_testeUncheckedUpdateManyInput>
+    data: XOR<tbl_filmeUpdateManyMutationInput, tbl_filmeUncheckedUpdateManyInput>
     /**
-     * Filter which tbl_testes to update
+     * Filter which tbl_filmes to update
      */
-    where?: tbl_testeWhereInput
+    where?: tbl_filmeWhereInput
     /**
-     * Limit how many tbl_testes to update.
+     * Limit how many tbl_filmes to update.
      */
     limit?: number
   }
 
   /**
-   * tbl_teste upsert
+   * tbl_filme upsert
    */
-  export type tbl_testeUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tbl_filmeUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the tbl_teste
+     * Select specific fields to fetch from the tbl_filme
      */
-    select?: tbl_testeSelect<ExtArgs> | null
+    select?: tbl_filmeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the tbl_teste
+     * Omit specific fields from the tbl_filme
      */
-    omit?: tbl_testeOmit<ExtArgs> | null
+    omit?: tbl_filmeOmit<ExtArgs> | null
     /**
-     * The filter to search for the tbl_teste to update in case it exists.
+     * The filter to search for the tbl_filme to update in case it exists.
      */
-    where: tbl_testeWhereUniqueInput
+    where: tbl_filmeWhereUniqueInput
     /**
-     * In case the tbl_teste found by the `where` argument doesn't exist, create a new tbl_teste with this data.
+     * In case the tbl_filme found by the `where` argument doesn't exist, create a new tbl_filme with this data.
      */
-    create: XOR<tbl_testeCreateInput, tbl_testeUncheckedCreateInput>
+    create: XOR<tbl_filmeCreateInput, tbl_filmeUncheckedCreateInput>
     /**
-     * In case the tbl_teste was found with the provided `where` argument, update it with this data.
+     * In case the tbl_filme was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<tbl_testeUpdateInput, tbl_testeUncheckedUpdateInput>
+    update: XOR<tbl_filmeUpdateInput, tbl_filmeUncheckedUpdateInput>
   }
 
   /**
-   * tbl_teste delete
+   * tbl_filme delete
    */
-  export type tbl_testeDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tbl_filmeDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the tbl_teste
+     * Select specific fields to fetch from the tbl_filme
      */
-    select?: tbl_testeSelect<ExtArgs> | null
+    select?: tbl_filmeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the tbl_teste
+     * Omit specific fields from the tbl_filme
      */
-    omit?: tbl_testeOmit<ExtArgs> | null
+    omit?: tbl_filmeOmit<ExtArgs> | null
     /**
-     * Filter which tbl_teste to delete.
+     * Filter which tbl_filme to delete.
      */
-    where: tbl_testeWhereUniqueInput
+    where: tbl_filmeWhereUniqueInput
   }
 
   /**
-   * tbl_teste deleteMany
+   * tbl_filme deleteMany
    */
-  export type tbl_testeDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tbl_filmeDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which tbl_testes to delete
+     * Filter which tbl_filmes to delete
      */
-    where?: tbl_testeWhereInput
+    where?: tbl_filmeWhereInput
     /**
-     * Limit how many tbl_testes to delete.
+     * Limit how many tbl_filmes to delete.
      */
     limit?: number
   }
 
   /**
-   * tbl_teste without action
+   * tbl_filme without action
    */
-  export type tbl_testeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type tbl_filmeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the tbl_teste
+     * Select specific fields to fetch from the tbl_filme
      */
-    select?: tbl_testeSelect<ExtArgs> | null
+    select?: tbl_filmeSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the tbl_teste
+     * Omit specific fields from the tbl_filme
      */
-    omit?: tbl_testeOmit<ExtArgs> | null
+    omit?: tbl_filmeOmit<ExtArgs> | null
   }
 
 
@@ -1749,12 +1819,18 @@ export namespace Prisma {
   export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
-  export const Tbl_testeScalarFieldEnum: {
+  export const Tbl_filmeScalarFieldEnum: {
     id: 'id',
-    nome: 'nome'
+    nome: 'nome',
+    sinopse: 'sinopse',
+    data_lancamento: 'data_lancamento',
+    duracao: 'duracao',
+    orcamento: 'orcamento',
+    capa: 'capa',
+    trailler: 'trailler'
   };
 
-  export type Tbl_testeScalarFieldEnum = (typeof Tbl_testeScalarFieldEnum)[keyof typeof Tbl_testeScalarFieldEnum]
+  export type Tbl_filmeScalarFieldEnum = (typeof Tbl_filmeScalarFieldEnum)[keyof typeof Tbl_filmeScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -1765,11 +1841,22 @@ export namespace Prisma {
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
 
 
-  export const tbl_testeOrderByRelevanceFieldEnum: {
-    nome: 'nome'
+  export const NullsOrder: {
+    first: 'first',
+    last: 'last'
   };
 
-  export type tbl_testeOrderByRelevanceFieldEnum = (typeof tbl_testeOrderByRelevanceFieldEnum)[keyof typeof tbl_testeOrderByRelevanceFieldEnum]
+  export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
+
+
+  export const tbl_filmeOrderByRelevanceFieldEnum: {
+    nome: 'nome',
+    sinopse: 'sinopse',
+    capa: 'capa',
+    trailler: 'trailler'
+  };
+
+  export type tbl_filmeOrderByRelevanceFieldEnum = (typeof tbl_filmeOrderByRelevanceFieldEnum)[keyof typeof tbl_filmeOrderByRelevanceFieldEnum]
 
 
   /**
@@ -1792,6 +1879,20 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'DateTime'
+   */
+  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+  /**
+   * Reference to a field of type 'Decimal'
+   */
+  export type DecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal'>
+    
+
+
+  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -1801,76 +1902,148 @@ export namespace Prisma {
    */
 
 
-  export type tbl_testeWhereInput = {
-    AND?: tbl_testeWhereInput | tbl_testeWhereInput[]
-    OR?: tbl_testeWhereInput[]
-    NOT?: tbl_testeWhereInput | tbl_testeWhereInput[]
-    id?: IntFilter<"tbl_teste"> | number
-    nome?: StringFilter<"tbl_teste"> | string
+  export type tbl_filmeWhereInput = {
+    AND?: tbl_filmeWhereInput | tbl_filmeWhereInput[]
+    OR?: tbl_filmeWhereInput[]
+    NOT?: tbl_filmeWhereInput | tbl_filmeWhereInput[]
+    id?: IntFilter<"tbl_filme"> | number
+    nome?: StringFilter<"tbl_filme"> | string
+    sinopse?: StringNullableFilter<"tbl_filme"> | string | null
+    data_lancamento?: DateTimeNullableFilter<"tbl_filme"> | Date | string | null
+    duracao?: DateTimeFilter<"tbl_filme"> | Date | string
+    orcamento?: DecimalFilter<"tbl_filme"> | Decimal | DecimalJsLike | number | string
+    capa?: StringFilter<"tbl_filme"> | string
+    trailler?: StringNullableFilter<"tbl_filme"> | string | null
   }
 
-  export type tbl_testeOrderByWithRelationInput = {
+  export type tbl_filmeOrderByWithRelationInput = {
     id?: SortOrder
     nome?: SortOrder
-    _relevance?: tbl_testeOrderByRelevanceInput
+    sinopse?: SortOrderInput | SortOrder
+    data_lancamento?: SortOrderInput | SortOrder
+    duracao?: SortOrder
+    orcamento?: SortOrder
+    capa?: SortOrder
+    trailler?: SortOrderInput | SortOrder
+    _relevance?: tbl_filmeOrderByRelevanceInput
   }
 
-  export type tbl_testeWhereUniqueInput = Prisma.AtLeast<{
+  export type tbl_filmeWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    AND?: tbl_testeWhereInput | tbl_testeWhereInput[]
-    OR?: tbl_testeWhereInput[]
-    NOT?: tbl_testeWhereInput | tbl_testeWhereInput[]
-    nome?: StringFilter<"tbl_teste"> | string
+    AND?: tbl_filmeWhereInput | tbl_filmeWhereInput[]
+    OR?: tbl_filmeWhereInput[]
+    NOT?: tbl_filmeWhereInput | tbl_filmeWhereInput[]
+    nome?: StringFilter<"tbl_filme"> | string
+    sinopse?: StringNullableFilter<"tbl_filme"> | string | null
+    data_lancamento?: DateTimeNullableFilter<"tbl_filme"> | Date | string | null
+    duracao?: DateTimeFilter<"tbl_filme"> | Date | string
+    orcamento?: DecimalFilter<"tbl_filme"> | Decimal | DecimalJsLike | number | string
+    capa?: StringFilter<"tbl_filme"> | string
+    trailler?: StringNullableFilter<"tbl_filme"> | string | null
   }, "id">
 
-  export type tbl_testeOrderByWithAggregationInput = {
+  export type tbl_filmeOrderByWithAggregationInput = {
     id?: SortOrder
     nome?: SortOrder
-    _count?: tbl_testeCountOrderByAggregateInput
-    _avg?: tbl_testeAvgOrderByAggregateInput
-    _max?: tbl_testeMaxOrderByAggregateInput
-    _min?: tbl_testeMinOrderByAggregateInput
-    _sum?: tbl_testeSumOrderByAggregateInput
+    sinopse?: SortOrderInput | SortOrder
+    data_lancamento?: SortOrderInput | SortOrder
+    duracao?: SortOrder
+    orcamento?: SortOrder
+    capa?: SortOrder
+    trailler?: SortOrderInput | SortOrder
+    _count?: tbl_filmeCountOrderByAggregateInput
+    _avg?: tbl_filmeAvgOrderByAggregateInput
+    _max?: tbl_filmeMaxOrderByAggregateInput
+    _min?: tbl_filmeMinOrderByAggregateInput
+    _sum?: tbl_filmeSumOrderByAggregateInput
   }
 
-  export type tbl_testeScalarWhereWithAggregatesInput = {
-    AND?: tbl_testeScalarWhereWithAggregatesInput | tbl_testeScalarWhereWithAggregatesInput[]
-    OR?: tbl_testeScalarWhereWithAggregatesInput[]
-    NOT?: tbl_testeScalarWhereWithAggregatesInput | tbl_testeScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"tbl_teste"> | number
-    nome?: StringWithAggregatesFilter<"tbl_teste"> | string
+  export type tbl_filmeScalarWhereWithAggregatesInput = {
+    AND?: tbl_filmeScalarWhereWithAggregatesInput | tbl_filmeScalarWhereWithAggregatesInput[]
+    OR?: tbl_filmeScalarWhereWithAggregatesInput[]
+    NOT?: tbl_filmeScalarWhereWithAggregatesInput | tbl_filmeScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"tbl_filme"> | number
+    nome?: StringWithAggregatesFilter<"tbl_filme"> | string
+    sinopse?: StringNullableWithAggregatesFilter<"tbl_filme"> | string | null
+    data_lancamento?: DateTimeNullableWithAggregatesFilter<"tbl_filme"> | Date | string | null
+    duracao?: DateTimeWithAggregatesFilter<"tbl_filme"> | Date | string
+    orcamento?: DecimalWithAggregatesFilter<"tbl_filme"> | Decimal | DecimalJsLike | number | string
+    capa?: StringWithAggregatesFilter<"tbl_filme"> | string
+    trailler?: StringNullableWithAggregatesFilter<"tbl_filme"> | string | null
   }
 
-  export type tbl_testeCreateInput = {
+  export type tbl_filmeCreateInput = {
     nome: string
+    sinopse?: string | null
+    data_lancamento?: Date | string | null
+    duracao: Date | string
+    orcamento: Decimal | DecimalJsLike | number | string
+    capa: string
+    trailler?: string | null
   }
 
-  export type tbl_testeUncheckedCreateInput = {
+  export type tbl_filmeUncheckedCreateInput = {
     id?: number
     nome: string
+    sinopse?: string | null
+    data_lancamento?: Date | string | null
+    duracao: Date | string
+    orcamento: Decimal | DecimalJsLike | number | string
+    capa: string
+    trailler?: string | null
   }
 
-  export type tbl_testeUpdateInput = {
+  export type tbl_filmeUpdateInput = {
     nome?: StringFieldUpdateOperationsInput | string
+    sinopse?: NullableStringFieldUpdateOperationsInput | string | null
+    data_lancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duracao?: DateTimeFieldUpdateOperationsInput | Date | string
+    orcamento?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    capa?: StringFieldUpdateOperationsInput | string
+    trailler?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type tbl_testeUncheckedUpdateInput = {
+  export type tbl_filmeUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     nome?: StringFieldUpdateOperationsInput | string
+    sinopse?: NullableStringFieldUpdateOperationsInput | string | null
+    data_lancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duracao?: DateTimeFieldUpdateOperationsInput | Date | string
+    orcamento?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    capa?: StringFieldUpdateOperationsInput | string
+    trailler?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type tbl_testeCreateManyInput = {
+  export type tbl_filmeCreateManyInput = {
     id?: number
     nome: string
+    sinopse?: string | null
+    data_lancamento?: Date | string | null
+    duracao: Date | string
+    orcamento: Decimal | DecimalJsLike | number | string
+    capa: string
+    trailler?: string | null
   }
 
-  export type tbl_testeUpdateManyMutationInput = {
+  export type tbl_filmeUpdateManyMutationInput = {
     nome?: StringFieldUpdateOperationsInput | string
+    sinopse?: NullableStringFieldUpdateOperationsInput | string | null
+    data_lancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duracao?: DateTimeFieldUpdateOperationsInput | Date | string
+    orcamento?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    capa?: StringFieldUpdateOperationsInput | string
+    trailler?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type tbl_testeUncheckedUpdateManyInput = {
+  export type tbl_filmeUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     nome?: StringFieldUpdateOperationsInput | string
+    sinopse?: NullableStringFieldUpdateOperationsInput | string | null
+    data_lancamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duracao?: DateTimeFieldUpdateOperationsInput | Date | string
+    orcamento?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    capa?: StringFieldUpdateOperationsInput | string
+    trailler?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -1899,33 +2072,106 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
-  export type tbl_testeOrderByRelevanceInput = {
-    fields: tbl_testeOrderByRelevanceFieldEnum | tbl_testeOrderByRelevanceFieldEnum[]
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    search?: string
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type DateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[]
+    notIn?: Date[] | string[]
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type DecimalFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[]
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[]
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
+  }
+
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
+  }
+
+  export type tbl_filmeOrderByRelevanceInput = {
+    fields: tbl_filmeOrderByRelevanceFieldEnum | tbl_filmeOrderByRelevanceFieldEnum[]
     sort: SortOrder
     search: string
   }
 
-  export type tbl_testeCountOrderByAggregateInput = {
+  export type tbl_filmeCountOrderByAggregateInput = {
     id?: SortOrder
     nome?: SortOrder
+    sinopse?: SortOrder
+    data_lancamento?: SortOrder
+    duracao?: SortOrder
+    orcamento?: SortOrder
+    capa?: SortOrder
+    trailler?: SortOrder
   }
 
-  export type tbl_testeAvgOrderByAggregateInput = {
+  export type tbl_filmeAvgOrderByAggregateInput = {
     id?: SortOrder
+    orcamento?: SortOrder
   }
 
-  export type tbl_testeMaxOrderByAggregateInput = {
+  export type tbl_filmeMaxOrderByAggregateInput = {
     id?: SortOrder
     nome?: SortOrder
+    sinopse?: SortOrder
+    data_lancamento?: SortOrder
+    duracao?: SortOrder
+    orcamento?: SortOrder
+    capa?: SortOrder
+    trailler?: SortOrder
   }
 
-  export type tbl_testeMinOrderByAggregateInput = {
+  export type tbl_filmeMinOrderByAggregateInput = {
     id?: SortOrder
     nome?: SortOrder
+    sinopse?: SortOrder
+    data_lancamento?: SortOrder
+    duracao?: SortOrder
+    orcamento?: SortOrder
+    capa?: SortOrder
+    trailler?: SortOrder
   }
 
-  export type tbl_testeSumOrderByAggregateInput = {
+  export type tbl_filmeSumOrderByAggregateInput = {
     id?: SortOrder
+    orcamento?: SortOrder
   }
 
   export type IntWithAggregatesFilter<$PrismaModel = never> = {
@@ -1962,8 +2208,90 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    search?: string
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[]
+    notIn?: Date[] | string[]
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type DecimalWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[]
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[]
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalWithAggregatesFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedDecimalFilter<$PrismaModel>
+    _sum?: NestedDecimalFilter<$PrismaModel>
+    _min?: NestedDecimalFilter<$PrismaModel>
+    _max?: NestedDecimalFilter<$PrismaModel>
+  }
+
   export type StringFieldUpdateOperationsInput = {
     set?: string
+  }
+
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
+  }
+
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
+  }
+
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
+  }
+
+  export type DecimalFieldUpdateOperationsInput = {
+    set?: Decimal | DecimalJsLike | number | string
+    increment?: Decimal | DecimalJsLike | number | string
+    decrement?: Decimal | DecimalJsLike | number | string
+    multiply?: Decimal | DecimalJsLike | number | string
+    divide?: Decimal | DecimalJsLike | number | string
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -1998,6 +2326,54 @@ export namespace Prisma {
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     search?: string
     not?: NestedStringFilter<$PrismaModel> | string
+  }
+
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    search?: string
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type NestedDateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[]
+    notIn?: Date[] | string[]
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type NestedDecimalFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[]
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[]
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
   }
 
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
@@ -2043,6 +2419,79 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
+  }
+
+  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    search?: string
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
+  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[]
+    notIn?: Date[] | string[]
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type NestedDecimalWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[]
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[]
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalWithAggregatesFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedDecimalFilter<$PrismaModel>
+    _sum?: NestedDecimalFilter<$PrismaModel>
+    _min?: NestedDecimalFilter<$PrismaModel>
+    _max?: NestedDecimalFilter<$PrismaModel>
   }
 
 

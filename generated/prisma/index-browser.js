@@ -120,9 +120,15 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
-exports.Prisma.Tbl_testeScalarFieldEnum = {
+exports.Prisma.Tbl_filmeScalarFieldEnum = {
   id: 'id',
-  nome: 'nome'
+  nome: 'nome',
+  sinopse: 'sinopse',
+  data_lancamento: 'data_lancamento',
+  duracao: 'duracao',
+  orcamento: 'orcamento',
+  capa: 'capa',
+  trailler: 'trailler'
 };
 
 exports.Prisma.SortOrder = {
@@ -130,13 +136,21 @@ exports.Prisma.SortOrder = {
   desc: 'desc'
 };
 
-exports.Prisma.tbl_testeOrderByRelevanceFieldEnum = {
-  nome: 'nome'
+exports.Prisma.NullsOrder = {
+  first: 'first',
+  last: 'last'
+};
+
+exports.Prisma.tbl_filmeOrderByRelevanceFieldEnum = {
+  nome: 'nome',
+  sinopse: 'sinopse',
+  capa: 'capa',
+  trailler: 'trailler'
 };
 
 
 exports.Prisma.ModelName = {
-  tbl_teste: 'tbl_teste'
+  tbl_filme: 'tbl_filme'
 };
 
 /**
