@@ -13,6 +13,9 @@ const filmeDAO = require('../../model/DAO/filme.js')
 //Import da controller da tabela relacionamento filme_genero
 const controllerFilmeGenero = require('./controller_filme_genero.js')
 
+//Import da controller da tabela relacionamento ator_personagem
+const controllerAtorPersonagem = require('../ator/controller_ator_personagem.js')
+
 //Import do arquivo de mensagens
 const DEFAULT_MESSAGES = require('../modulo/config_messages.js')
 
@@ -37,7 +40,15 @@ const listarFilmes = async function(){
                     if(resultGeneros.status_code == 200){
                         filme.genero = resultGeneros.response.filme_genero
                     }
-                    
+                }
+
+                for(filme of resultFilmes){
+                    //Encaminha o JSON com o id do filme para a controller de ator_personagem
+                    let resultElenco  = await controllerAtorPersonagem.listarAtoresPersonagensIdFilme(filme.id)
+
+                    if(resultElenco.status_code == 200){
+                        filme.elenco = resultElenco.response.ator_personagem
+                    }
                 }
 
                 MESSAGES.DEFAULT_HEADER.status = MESSAGES.SUCCESS_REQUEST.status
@@ -80,6 +91,15 @@ const buscarFilmeId = async function(id){
                             filme.genero = resultGenero.response.filme_genero
                         }
                     }
+
+                    for(filme of resultFilme){
+                    //Encaminha o JSON com o id do filme para a controller de ator_personagem
+                    let resultElenco  = await controllerAtorPersonagem.listarAtoresPersonagensIdFilme(filme.id)
+
+                    if(resultElenco.status_code == 200){
+                        filme.elenco = resultElenco.response.ator_personagem
+                    }
+                }
 
                     MESSAGES.DEFAULT_HEADER.status = MESSAGES.SUCCESS_REQUEST.status
                     MESSAGES.DEFAULT_HEADER.status_code = MESSAGES.SUCCESS_REQUEST.status_code
@@ -140,6 +160,16 @@ const inserirFilme = async function(filme, contentType){
                             }
                         }
 
+                        for(elenco of filme.elenco){
+                            let atorPersonagem = {id_filme: lastId, id_ator: elenco.id_ator, id_personagem: elenco.id_personagem}
+
+                            let resultAtorPersonagem = await controllerAtorPersonagem.inserirAtorPersonagem(atorPersonagem, contentType)
+
+                            if(resultAtorPersonagem.status_code =! 201){
+                                return MESSAGES.ERROR_RELATIONAL_INSERTION
+                            }
+                        }
+
                         //Adiciona o ID no JSON de dados do filme
                         filme.id = lastId
 
@@ -149,9 +179,13 @@ const inserirFilme = async function(filme, contentType){
 
                         //Adicionar no JSON dados do genero
                         delete filme.genero
-
                         let resultDadosGenero = await controllerFilmeGenero.listarGenerosIdFilme(lastId)
                         filme.genero = resultDadosGenero.response.filme_genero
+
+                        //Adicionar no JSON dados do elenco
+                        delete filme.elenco
+                        let resultDadosElenco = await controllerAtorPersonagem.listarAtoresPersonagensIdFilme(lastId)
+                        filme.elenco = resultDadosElenco.response.ator_personagem
 
                         MESSAGES.DEFAULT_HEADER.response = filme
                     
@@ -203,6 +237,18 @@ const atualizarFilme = async function(filme, id, contentType){
                     let resultFilme = await filmeDAO.setUpdateMovies(filme)
                 
                     if(resultFilme){
+                        for(genero of filme.genero){
+                            //Cria o JSON com o id do filme e o id do genero
+                            let filmeGenero = {id_filme: filme.id, id_genero: genero.id}
+
+                            //Encaminha o JSON com o id do filme e do genero para a controller de filme_genero
+                            let resultFilmeGenero = await controllerFilmeGenero.atualizarFilmeGenero(filmeGenero, id, contentType)
+
+                            if(resultFilmeGenero.status_code != 200){
+                                return MESSAGES.ERROR_RELATIONAL_INSERTION
+                            }
+                        }
+
                         MESSAGES.DEFAULT_HEADER.status = MESSAGES.SUCCESS_UPDATED_ITEM.status
                         MESSAGES.DEFAULT_HEADER.status_code = MESSAGES.SUCCESS_UPDATED_ITEM.status_code
                         MESSAGES.DEFAULT_HEADER.message = MESSAGES.SUCCESS_UPDATED_ITEM.message
