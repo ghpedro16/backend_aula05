@@ -348,6 +348,8 @@ const validarDadosFilme = async function(filme){
         MESSAGES.ERROR_REQUIRED_FIELDS.message += ' [Capa incorreto]'
         return MESSAGES.ERROR_REQUIRED_FIELDS
 
+    }else if(filme.id_classificacao == '' || filme.id_classificacao == null || filme.id_classificacao == undefined || typeof(filme.id_classificacao) != 'int'){
+        MESSAGES.ERROR_REQUIRED_FIELDS.message += ' [Foreign Key (id_classificacao) incorreta]'
     }else{
         return false
     }

@@ -95,14 +95,15 @@ const getSelectLastId = async function(){
 const setInsertMovies = async function (filme){
     try {
         //Script sql
-        let sql = `INSERT INTO tbl_filme (nome, sinopse, data_lancamento, duracao, orcamento, trailer, capa)
+        let sql = `INSERT INTO tbl_filme (nome, sinopse, data_lancamento, duracao, orcamento, trailer, capa, id_classificacao)
 	            VALUES('${filme.nome}',
 	            '${filme.sinopse}',
 	            '${filme.data_lancamento}',
 	            '${filme.duracao}',
 	            '${filme.orcamento}',
 	            '${filme.trailer}',
-	            '${filme.capa}')`
+	            '${filme.capa}',
+                '${filme.id_classificacao}')`
 
     
         let result = await prisma.$executeRawUnsafe(sql)
@@ -129,7 +130,8 @@ const setUpdateMovies = async function (filme){
         duracao = '${filme.duracao}', 
         orcamento = '${filme.orcamento}', 
         trailer = '${filme.trailer}', 
-        capa = '${filme.capa}' 
+        capa = '${filme.capa}',
+        id_classificacao = '${filme.id_classificacao}' 
         WHERE id = ${filme.id}`
 
         let result = await prisma.$executeRawUnsafe(sql)
