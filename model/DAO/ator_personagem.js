@@ -167,6 +167,23 @@ const setUpdateActorCharacter = async function(atorPersonagem){
     }
 }
 
+const setDeleteElencoByIdMovies = async function(id_filme){
+    try {
+        //Script sql
+        let sql = `DELETE FROM tbl_ator_personagem WHERE id_filme = ${id_filme}`
+
+        let result = await prisma.$queryRawUnsafe(sql)
+
+        if(Array.isArray(result))
+            return result
+        else
+            return false
+
+    } catch (error) {
+        return false
+    }    
+}
+
 const setDeleteActorCharacter = async function(id){
     try {
         //Script sql
@@ -193,5 +210,6 @@ module.exports = {
     getSelectLastId,
     setInsertActorCharacter,
     setUpdateActorCharacter,
+    setDeleteElencoByIdMovies,
     setDeleteActorCharacter
 }

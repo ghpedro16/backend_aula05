@@ -148,6 +148,23 @@ const setUpdateMoviesGenres = async function(filmeGenero){
     }
 }
 
+const setDeleteGenreByIdMovies = async function(id_filme){
+    try {
+        //Script sql
+        let sql = `DELETE FROM tbl_filme_genero WHERE id_filme = ${id_filme}`
+
+        let result = await prisma.$queryRawUnsafe(sql)
+
+        if(Array.isArray(result))
+            return result
+        else
+            return false
+
+    } catch (error) {
+        return false
+    }    
+}
+
 const setDeleteMoviesGenres = async function(id){
     try {
         //Script sql
@@ -173,5 +190,6 @@ module.exports = {
     getSelectLastId,
     setInsertMoviesGenres,
     setUpdateMoviesGenres,
+    setDeleteGenreByIdMovies,
     setDeleteMoviesGenres
 }

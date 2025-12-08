@@ -19,6 +19,9 @@ const app = express()
 //Import da controller
 const controllerAtor = require('../controller/ator/controller_ator.js')
 
+//Import da controller de ator e personagem
+const controllerAtorPersonagem = require('../controller/ator/controller_ator_personagem.js')
+
 //Lista todos os atores
 app.get('/v1/locadora/atores', cors(), async function(request, response){
     //Chama a função para listar os personagens existentes no BD
@@ -33,6 +36,15 @@ app.get('/v1/locadora/ator/:id', cors(), async function (request, response) {
     let idAtor = request.params.id
 
     let ator = await controllerAtor.buscarAtorId(idAtor)
+
+    response.status(ator.status_code).json(ator)
+})
+
+//Lista os papeis do ator pelo ID
+app.get('/v1/locadora/ator/papeis/:id', cors(), async function (request, response){
+    let idAtor = request.params.id
+
+    let ator = await controllerAtorPersonagem.listarPersonagensFilmesIdAtor(idAtor)
 
     response.status(ator.status_code).json(ator)
 })

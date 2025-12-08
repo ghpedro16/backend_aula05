@@ -229,7 +229,7 @@ const validarDadosPersonagem = async function(personagem){
         MESSAGES.ERROR_REQUIRED_FIELDS.message += ' [Descrição incorreto]'
         return MESSAGES.ERROR_REQUIRED_FIELDS
 
-    } else if (personagem.ficticio == '' || personagem.ficticio == null || personagem.ficticio == undefined) {
+    } else if (personagem.ficticio == undefined) {
         MESSAGES.ERROR_REQUIRED_FIELDS.message += ' [Ficticio incorreto]'
         return MESSAGES.ERROR_REQUIRED_FIELDS
 
